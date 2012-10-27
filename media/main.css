@@ -67,11 +67,16 @@ ul {
     padding: 4px 8px;
 }
 
+#count {
+    background: #80ff00;
+    bottom: 1px;
+    height: 6px;
+    position: absolute;
+}
+
 .task-danger {
     -moz-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
     -webkit-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
-    background: #80ff00;
-    height: 6px;
 }
 
 #term {
