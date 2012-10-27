@@ -46,6 +46,30 @@ body {
     height: 3px;
 }
 
+#term {
+    background: #101010;
+    color: #fff;
+    position: absolute;
+    text-shadow: 0 0 5px rgba(255,255,255,0.75);
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+#term em {
+    color: #fc0;
+    font-style: normal;
+    text-shadow: 0 0 5px rgba(255,204,0,0.75);
+}
+
+#term .caret {
+    -moz-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
+    -webkit-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(255,255,255,0.75);
+    white-space: pre;
+}
+
 #rest {
     border: 1px solid #a0a0a0;
     box-sizing: border-box;
