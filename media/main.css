@@ -41,18 +41,21 @@ ul {
     width: 960px;
 }
 
-#todo {
-    background: #404040;
-    bottom: 5px;
+#game .zone {
     box-shadow:
         0 0 1px rgb(225,225,225),
         0 0 2px rgb(215,215,215),
         0 0 3px rgb(205,205,205);
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    position: absolute;
+}
+
+#todo {
+    background: #404040;
+    bottom: 5px;
     height: 530px;
     padding: 1px;
-    position: absolute;
     right: 5px;
     width: 320px;
 }
@@ -74,18 +77,11 @@ ul {
 #term {
     background: #101010;
     bottom: 5px;
-    box-shadow:
-        0 0 1px rgb(225,225,225),
-        0 0 2px rgb(215,215,215),
-        0 0 3px rgb(205,205,205);
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     color: #fff;
     height: 82px;
     left: 5px;
     padding: 8px 12px;
-    position: absolute;
-    text-shadow: 0 0 5px rgba(255,255,255,0.75);
+    text-shadow: 0 0 3px rgba(255,255,255,0.75);
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
@@ -114,6 +110,6 @@ ul {
     -moz-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
     -webkit-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
     background: #fff;
-    box-shadow: 0 0 3px rgba(255,255,255,0.75);
+    box-shadow: 0 0 2px rgba(255,255,255,0.75);
     white-space: pre;
 }
