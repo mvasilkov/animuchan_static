@@ -1,0 +1,53 @@
+@-moz-keyframes blink {
+    from {opacity: 1}
+    to {opacity: 0}
+}
+
+@-webkit-keyframes blink {
+    from {opacity: 1}
+    to {opacity: 0}
+}
+
+body {
+    background: #fbfbfb;
+    font: 0.8125em/22px source-code-pro, monospace;
+    margin: 0;
+}
+
+#game {
+    background: #f9f9f9;
+    height: 540px;
+    margin: 40px auto;
+    position: relative;
+    width: 960px;
+}
+
+#todo {
+    background: #404040;
+    box-sizing: border-box;
+    height: 540px;
+    padding: 3px;
+    position: absolute;
+    right: 0;
+    width: 320px;
+}
+
+.task {
+    background: #f9f9f9;
+    height: 48px;
+    margin-bottom: 3px;
+    padding: 4px 8px;
+}
+
+.task-danger {
+    -moz-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
+    -webkit-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
+    background: #80ff00;
+    height: 3px;
+}
+
+#rest {
+    border: 1px solid #a0a0a0;
+    box-sizing: border-box;
+    height: 540px;
+}
