@@ -74,9 +74,9 @@ ul {
     position: absolute;
 }
 
-.task-danger {
-    -moz-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
-    -webkit-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
+#count.danger {
+    -moz-animation: blink 250ms cubic-bezier(1,0,0,1) infinite;
+    -webkit-animation: blink 250ms cubic-bezier(1,0,0,1) infinite;
 }
 
 #term {
