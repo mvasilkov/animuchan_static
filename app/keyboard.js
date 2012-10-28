@@ -17,6 +17,8 @@
     })
 
     $(document.documentElement).keypress(function(event) {
+        if (event.metaKey || event.altKey || event.ctrlKey) return
+
         var ch = String.fromCharCode(event.which).toLowerCase()
 
         if (event.which === RETURN) {
