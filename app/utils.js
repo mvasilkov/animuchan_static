@@ -2,7 +2,7 @@
     root.defer = function(fun, obj) {
         var args = Array.prototype.slice.call(arguments, 2)
 
-        return setTimeout(function() {
+        return requestAnimationFrame(function() {
             fun.apply(obj, args)
         }, 1)
     }
