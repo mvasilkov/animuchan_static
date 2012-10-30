@@ -8,6 +8,7 @@
     function addTask(text) {
         var task = $("<div class=task>").text(text)
         todo.append(task)
+        defer(task.addClass, task, "active")
     }
 
     function updateCount(n) {

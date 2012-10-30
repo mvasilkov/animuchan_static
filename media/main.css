@@ -57,6 +57,7 @@ ul {
     height: 530px;
     padding: 1px;
     right: 5px;
+    -webkit-transform: translate3d(0,0,0);
     width: 320px;
 }
 
@@ -75,6 +76,9 @@ ul {
     height: 49px;
     margin-bottom: 1px;
     padding: 4px 8px;
+    -moz-transform: scale(0.01);
+    -webkit-transform: scale(0.01);
+    -o-transform: scale(0.01);
     -moz-transition: -moz-transform 400ms;
     -webkit-transition: -webkit-transform 400ms;
     -o-transition: -o-transform 400ms;
@@ -85,6 +89,9 @@ ul {
 }
 
 .active.task {
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
 }
 
 #count {
