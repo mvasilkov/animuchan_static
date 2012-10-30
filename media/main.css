@@ -61,10 +61,30 @@ ul {
 }
 
 .task {
-    background: #f9f9f9;
+    background-color: #f9f9f9;
+    background-image:
+        -moz-linear-gradient(top,
+            rgba(255,255,255,0.25),
+            rgba(255,255,255,0.25) 50%,
+            rgba(255,255,255,0) 50%);
+    background-image:
+        -webkit-gradient(linear, left top, left bottom,
+            from(rgba(255,255,255,0.25)),
+            color-stop(50%, rgba(255,255,255,0.25)),
+            color-stop(50%, rgba(255,255,255,0)));
     height: 49px;
     margin-bottom: 1px;
     padding: 4px 8px;
+    -moz-transition: -moz-transform 400ms;
+    -webkit-transition: -webkit-transform 400ms;
+    -o-transition: -o-transform 400ms;
+}
+
+.task:nth-child(odd) {
+    background-color: #bbdfff;
+}
+
+.active.task {
 }
 
 #count {
