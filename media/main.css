@@ -73,6 +73,11 @@ ul {
             from(rgba(255,255,255,0.25)),
             color-stop(50%, rgba(255,255,255,0.25)),
             color-stop(50%, rgba(255,255,255,0)));
+    background-image:
+        -o-linear-gradient(top,
+            rgba(255,255,255,0.25),
+            rgba(255,255,255,0.25) 50%,
+            rgba(255,255,255,0) 50%);
     height: 49px;
     margin-bottom: 1px;
     padding: 4px 8px;
