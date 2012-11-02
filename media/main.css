@@ -79,14 +79,14 @@ ul {
             rgba(255,255,255,0.25) 50%,
             rgba(255,255,255,0) 50%);
     height: 49px;
-    margin-bottom: 1px;
+    margin: 0 0 1px;
     padding: 4px 8px;
     -moz-transform: scale(0.01);
     -webkit-transform: scale(0.01);
     -o-transform: scale(0.01);
-    -moz-transition: -moz-transform 400ms;
-    -webkit-transition: -webkit-transform 400ms;
-    -o-transition: -o-transform 400ms;
+    -moz-transition: -moz-transform 400ms, background-color 250ms;
+    -webkit-transition: -webkit-transform 400ms, background-color 250ms;
+    -o-transition: -o-transform 400ms, background-color 250ms;
 }
 
 .task:nth-child(2n+1) {
@@ -97,6 +97,17 @@ ul {
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -o-transform: scale(1);
+}
+
+.replacement {
+    height: 50px;
+    -moz-transition: height 250ms;
+    -webkit-transition: height 250ms;
+    -o-transition: height 250ms;
+}
+
+.replacement.foo {
+    height: 0;
 }
 
 #count {

@@ -6,7 +6,7 @@
     var /** @const */ TODO_SIZE = 9, countFull = parseInt(todo.css("width"))
 
     function addTask(text) {
-        var task = $("<div class=task>").text(text)
+        var task = $("<div class=task>").attr("data-text", text).text(text)
         todo.append(task)
         defer(task.addClass, task, "active")
     }
@@ -29,8 +29,12 @@
 
     todo.delegate(".active.task", "click", function(event) {
         $(this).removeClass("active").bind(root.transitionend, function(event) {
-            console.log("remove")
-            $(this).remove()
+            var replacement = $("<div class=replacement>")
+            $(this).replaceWith(replacement)
+            defer(replacement.addClass, replacement, "foo")
+            replacement.bind(root.transitionend, function(event) {
+                $(this).remove()
+            })
         })
     })
 })(this)
