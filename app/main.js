@@ -27,12 +27,12 @@
 
     /* debugging */
 
-    todo.delegate(".active.task", "click", function(event) {
-        $(this).removeClass("active").bind(root.transitionend, function(event) {
+    todo.delegate(".active.task", "click", function() {
+        $(this).removeClass("active").bind(root.transitionend, function() {
             var replacement = $("<div class=replacement>")
             $(this).replaceWith(replacement)
             defer(replacement.addClass, replacement, "foo")
-            replacement.bind(root.transitionend, function(event) {
+            replacement.bind(root.transitionend, function() {
                 $(this).remove()
             })
         })
