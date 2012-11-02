@@ -22,7 +22,9 @@
         var ch = String.fromCharCode(event.which).toLowerCase()
 
         if (event.which === RETURN) {
+            if (root.keyboardUpdate) root.keyboardUpdate("")
             if (root.keyboardReturn) root.keyboardReturn(buffer)
+            buffer = ""
 
             if (event.preventDefault) event.preventDefault()
         }
