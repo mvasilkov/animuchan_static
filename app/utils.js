@@ -7,4 +7,10 @@
             fun.apply(obj, args)
         }, 1)
     }
+
+    root.transitionend = [
+        "transitionend",
+        "webkitTransitionEnd",
+        "otransitionend"
+    ].join(" ")
 })(this)

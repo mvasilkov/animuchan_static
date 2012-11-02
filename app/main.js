@@ -24,4 +24,13 @@
 
     root.keyboardUpdate = $.proxy(input.text, input)
     root.keyboardReturn = $.proxy(todoObject.push, todoObject)
+
+    /* debugging */
+
+    todo.delegate(".active.task", "click", function(event) {
+        $(this).removeClass("active").bind(root.transitionend, function(event) {
+            console.log("remove")
+            $(this).remove()
+        })
+    })
 })(this)

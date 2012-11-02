@@ -89,7 +89,7 @@ ul {
     -o-transition: -o-transform 400ms;
 }
 
-.task:nth-child(odd) {
+.task:nth-child(2n+1) {
     background-color: #bbdfff;
 }
 
