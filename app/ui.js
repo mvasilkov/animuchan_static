@@ -44,11 +44,16 @@ define(["conf", "utils"], function(conf, utils) {
         }
     }
 
+    function endGame() {
+        _next.remove()
+    }
+
     return {
         init: init,
         readline: readline,
         addTask: addTask,
         removeTask: removeTask,
-        updateCount: updateCount
+        updateCount: updateCount,
+        endGame: endGame
     }
 })

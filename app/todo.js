@@ -1,5 +1,5 @@
-define(function() {
-    var _todo, _addTask, _removeTask, _updateCount, _next = 0
+define(["conf"], function(conf) {
+    var _todo, _addTask, _removeTask, _updateCount, _endGame, _next = 0
 
     function push(text) {
         _todo.push(text)
@@ -8,18 +8,22 @@ define(function() {
         _updateCount(_todo.length)
     }
 
-    function init(addTask, removeTask, updateCount) {
+    function init(addTask, removeTask, updateCount, endGame) {
         _todo = []
 
         _addTask = addTask
-        _updateCount = updateCount
         _removeTask = removeTask
+        _updateCount = updateCount
+        _endGame = endGame
 
         push("git init")
     }
 
     function advance() {
-        push("git " + (++_next)) // FIXME
+        if (_todo.length === conf.TODO_SIZE) {
+            _endGame()
+        }
+        else push("git " + (++_next)) // FIXME
     }
 
     function done(text) {
