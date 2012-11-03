@@ -1,9 +1,9 @@
 define(["conf", "utils"], function(conf, utils) {
     var _count = $("#count"), _input = $("#input"), _todo = $("#todo"),
-        _countFull = _todo.width(), _advance
+        _countFull = _todo.width(), _advanceGame
 
-    function init(advance) {
-        _advance = advance
+    function init(advanceGame) {
+        _advanceGame = advanceGame
     }
 
     function readline(text) {
@@ -24,7 +24,7 @@ define(["conf", "utils"], function(conf, utils) {
             utils.defer(replacement.addClass, replacement, "foo")
             replacement.bind(utils.transitionend, function() {
                 $(this).remove()
-                _advance()
+                _advanceGame()
             })
         })
     }
