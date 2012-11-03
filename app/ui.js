@@ -12,6 +12,18 @@ define(["conf", "utils"], function(conf, utils) {
         utils.defer(task.addClass, task, "active")
     }
 
+    function removeTask(text) {
+        var task = _todo.children(".task[data-text=\"" + text + "\"]")
+        task.removeClass("active").bind(utils.transitionend, function() {
+            var replacement = $("<div class=replacement>")
+            $(this).replaceWith(replacement)
+            utils.defer(replacement.addClass, replacement, "foo")
+            replacement.bind(utils.transitionend, function() {
+                $(this).remove()
+            })
+        })
+    }
+
     function updateCount(n) {
         _count.css("width", _countFull / conf.TODO_SIZE * n + "px")
         if (n === conf.TODO_SIZE) {
@@ -22,6 +34,7 @@ define(["conf", "utils"], function(conf, utils) {
     return {
         readline: readline,
         addTask: addTask,
+        removeTask: removeTask,
         updateCount: updateCount
     }
 })
