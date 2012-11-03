@@ -9,7 +9,7 @@ define(["conf"], function(conf) {
         $(document.documentElement).keydown(function(event) {
             if (event.which === conf.BACKSPACE) {
                 _buffer = _buffer.substr(0, _buffer.length - 1)
-                if (keyboardUpdate) keyboardUpdate(_buffer)
+                keyboardUpdate(_buffer)
 
                 if (event.preventDefault) event.preventDefault()
             }
@@ -21,8 +21,8 @@ define(["conf"], function(conf) {
             var ch = String.fromCharCode(event.which).toLowerCase()
 
             if (event.which === conf.RETURN) {
-                if (keyboardUpdate) keyboardUpdate("")
-                if (keyboardReturn) keyboardReturn(_buffer)
+                keyboardUpdate("")
+                keyboardReturn(_buffer)
                 _buffer = ""
 
                 if (event.preventDefault) event.preventDefault()
@@ -30,7 +30,7 @@ define(["conf"], function(conf) {
             else if (ch.length === 1 && isPrintable(ch)) {
                 if (_buffer.length < conf.BUFFER_SIZE) {
                     _buffer += ch
-                    if (keyboardUpdate) keyboardUpdate(_buffer)
+                    keyboardUpdate(_buffer)
                 }
 
                 if (event.preventDefault) event.preventDefault()

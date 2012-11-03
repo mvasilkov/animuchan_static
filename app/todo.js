@@ -18,6 +18,10 @@ define(function() {
         push("git init")
     }
 
+    function advance() {
+        push("git status")
+    }
+
     function done(text) {
         var index = _todo.indexOf(text)
         if (index !== -1) {
@@ -30,6 +34,7 @@ define(function() {
     return {
         push: push,
         init: init,
+        advance: advance,
         done: done
     }
 })

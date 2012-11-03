@@ -1,6 +1,10 @@
 define(["conf", "utils"], function(conf, utils) {
     var _count = $("#count"), _input = $("#input"), _todo = $("#todo"),
-        _countFull = _todo.width()
+        _countFull = _todo.width(), _advance
+
+    function init(advance) {
+        _advance = advance
+    }
 
     function readline(text) {
         _input.text(text)
@@ -20,6 +24,7 @@ define(["conf", "utils"], function(conf, utils) {
             utils.defer(replacement.addClass, replacement, "foo")
             replacement.bind(utils.transitionend, function() {
                 $(this).remove()
+                _advance()
             })
         })
     }
@@ -32,6 +37,7 @@ define(["conf", "utils"], function(conf, utils) {
     }
 
     return {
+        init: init,
         readline: readline,
         addTask: addTask,
         removeTask: removeTask,
