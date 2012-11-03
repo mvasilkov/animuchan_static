@@ -1,5 +1,5 @@
 define(function() {
-    var _todo, _addTask, _removeTask, _updateCount
+    var _todo, _addTask, _removeTask, _updateCount, _next = 0
 
     function push(text) {
         _todo.push(text)
@@ -19,14 +19,14 @@ define(function() {
     }
 
     function advance() {
-        push("git status")
+        push("git " + (++_next)) // FIXME
     }
 
     function done(text) {
         var index = _todo.indexOf(text)
         if (index !== -1) {
             _todo.splice(index, 1)
-            _removeTask(text)
+            _removeTask(text, _todo.length)
             _updateCount(_todo.length)
         }
     }

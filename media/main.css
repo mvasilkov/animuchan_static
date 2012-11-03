@@ -166,6 +166,29 @@ ul {
     white-space: pre;
 }
 
+#warp {
+    background: #f9f9f9;
+    border: 1px solid #404040;
+    height: 44px;
+    left: 5px;
+    padding: 1px;
+    top: 5px;
+    width: 59px;
+}
+
+#next {
+    background: #404040;
+    height: 40px;
+    width: 0;
+}
+
+#next.done {
+    -moz-transition: width 9s linear;
+    -webkit-transition: width 9s linear;
+    -o-transition: width 9s linear;
+    width: 55px;
+}
+
 #github {
     background: #101010;
     box-shadow: 0 0 5px rgba(0,0,0,0.25);

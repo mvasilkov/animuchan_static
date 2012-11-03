@@ -1,9 +1,16 @@
 define(["conf", "utils"], function(conf, utils) {
-    var _count = $("#count"), _input = $("#input"), _todo = $("#todo"),
-        _countFull = _todo.width(), _advanceGame
+    var _count = $("#count"), _input = $("#input"), _next = $("#next"),
+        _todo = $("#todo"), _countFull = _todo.width(), _advanceGame
+
+    function resetNext() {
+        utils.defer(_next.addClass, _next, "done")
+        _next.removeClass("done")
+        _advanceGame()
+    }
 
     function init(advanceGame) {
         _advanceGame = advanceGame
+        _next.bind(utils.transitionend, resetNext)
     }
 
     function readline(text) {
@@ -16,7 +23,9 @@ define(["conf", "utils"], function(conf, utils) {
         utils.defer(task.addClass, task, "active")
     }
 
-    function removeTask(text) {
+    function removeTask(text, remaining) {
+        if (!remaining) resetNext()
+
         var task = _todo.children(".task[data-text=\"" + text + "\"]")
         task.removeClass("active").bind(utils.transitionend, function() {
             var replacement = $("<div class=replacement>")
@@ -24,7 +33,6 @@ define(["conf", "utils"], function(conf, utils) {
             utils.defer(replacement.addClass, replacement, "foo")
             replacement.bind(utils.transitionend, function() {
                 $(this).remove()
-                _advanceGame()
             })
         })
     }
