@@ -6,7 +6,7 @@ define(["conf"], function(conf) {
     }
 
     function init(keyboardUpdate, keyboardReturn) {
-    $(document.documentElement).keydown(function(event) {
+        $(document.documentElement).keydown(function(event) {
             if (event.which === conf.BACKSPACE) {
                 _buffer = _buffer.substr(0, _buffer.length - 1)
                 if (keyboardUpdate) keyboardUpdate(_buffer)

@@ -1,6 +1,6 @@
 define(["conf", "utils"], function(conf, utils) {
     var _count = $("#count"), _input = $("#input"), _todo = $("#todo"),
-        _countFull = parseInt(_todo.css("width"))
+        _countFull = _todo.width()
 
     function readline(text) {
         _input.text(text)
