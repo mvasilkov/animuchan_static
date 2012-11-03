@@ -1,5 +1,5 @@
-(function(root) {
-    root.defer = function(fun, obj) {
+define(["requestAnimationFrame"], function(requestAnimationFrame) {
+    function defer(fun, obj) {
         var args = Array.prototype.slice.call(arguments, 2)
 
         return requestAnimationFrame(function() {
@@ -8,9 +8,14 @@
         }, 1)
     }
 
-    root.transitionend = [
+    var _transitionend = [
         "transitionend",
         "webkitTransitionEnd",
         "otransitionend"
     ].join(" ")
-})(this)
+
+    return {
+        defer: defer,
+        transitionend: _transitionend
+    }
+})

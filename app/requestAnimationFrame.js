@@ -8,3 +8,7 @@ if (typeof requestAnimationFrame === "undefined") {
         return setTimeout(fun, 0)
     })
 }
+
+define(function() {
+    return requestAnimationFrame
+})

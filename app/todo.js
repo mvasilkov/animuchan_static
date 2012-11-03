@@ -1,17 +1,24 @@
-(function(root) {
-    root.TODO = function(addTask, updateCount) {
-        this._todo = []
+define(function() {
+    var _todo, _addTask, _updateCount
 
-        this._addTask = addTask
-        this._updateCount = updateCount
+    function push(text) {
+        _todo.push(text)
 
-        this.push("git init")
+        _addTask(text)
+        _updateCount(_todo.length)
     }
 
-    root.TODO.prototype.push = function(text) {
-        this._todo.push(text)
+    function init(addTask, updateCount) {
+        _todo = []
 
-        this._addTask(text)
-        this._updateCount(this._todo.length)
+        _addTask = addTask
+        _updateCount = updateCount
+
+        push("git init")
     }
-})(this)
+
+    return {
+        push: push,
+        init: init
+    }
+})
