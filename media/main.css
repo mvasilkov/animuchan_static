@@ -167,13 +167,24 @@ ul {
 }
 
 #warp {
-    background: #f9f9f9;
+    background: #f9f9f9 url("warp_bg.png");
     border: 1px solid #404040;
     height: 44px;
     left: 5px;
     padding: 1px;
     top: 5px;
     width: 59px;
+}
+
+#warp::after {
+    background-image: url("warp_inv.png");
+    border: 1px solid #f9f9f9;
+    content: "";
+    height: 40px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 55px;
 }
 
 #next {
