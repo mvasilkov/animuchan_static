@@ -1,6 +1,7 @@
 define(["conf", "utils"], function(conf, utils) {
     var _count = $("#count"), _input = $("#input"), _next = $("#next"),
-        _todo = $("#todo"), _countFull = _todo.width(), _advanceGame
+        _todo = $("#todo"), _countFull = _todo.width(), _advanceGame,
+        _started = false
 
     function resetNext() {
         utils.defer(_next.addClass, _next, "done")
@@ -24,6 +25,11 @@ define(["conf", "utils"], function(conf, utils) {
     }
 
     function removeTask(text, remaining) {
+        if (!_started) {
+            $("#instructions").remove()
+            _started = true
+        }
+
         if (!remaining) resetNext()
 
         var task = _todo.children(".task[data-text=\"" + text + "\"]")
