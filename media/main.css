@@ -20,6 +20,10 @@ ul {
     padding: 0;
 }
 
+li {
+    line-height: 22px; /* override Bootstrap default (20px) */
+}
+
 #game {
     background: #fff;
     box-shadow:
@@ -158,7 +162,7 @@ ul {
     z-index: 1;
 }
 
-#term .caret {
+#term .text-caret {
     -moz-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
     -webkit-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
     background: #fff;
