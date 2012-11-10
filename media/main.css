@@ -3,9 +3,19 @@
     to {opacity: 0}
 }
 
+@-moz-keyframes slide {
+    from {top: 64px}
+    to {top: 96px}
+}
+
 @-webkit-keyframes blink {
     from {opacity: 1}
     to {opacity: 0}
+}
+
+@-webkit-keyframes slide {
+    from {top: 64px}
+    to {top: 96px}
 }
 
 body {
@@ -227,6 +237,8 @@ iframe:last-child {
 }
 
 #instructions {
+    -moz-animation: slide 2s ease-in-out infinite alternate;
+    -webkit-animation: slide 2s ease-in-out infinite alternate;
     background-color: rgba(0,0,0,0.75);
     border: 1px solid #f9f9f9;
     box-shadow:
@@ -239,9 +251,15 @@ iframe:last-child {
     color: #fff;
     padding: 4px 8px;
     position: absolute;
-    right: 6px;
+    right: 22px;
     top: 64px;
     width: 300px;
+}
+
+#instructions i {
+    font-size: 20px;
+    line-height: 22px;
+    vertical-align: middle;
 }
 
 #github {
