@@ -310,15 +310,27 @@ iframe:last-child {
 
 .switch label {
     background-image:
+        -moz-linear-gradient(top,
+            rgb(240,240,240),
+            rgb(210,210,210) 50%,
+            rgb(255,255,255) 50%,
+            rgb(240,240,240));
+    background-image:
         -webkit-gradient(linear, left top, left bottom,
             from(rgb(240,240,240)),
             color-stop(50%, rgb(210,210,210)),
             color-stop(50%, rgb(255,255,255)),
             to(rgb(240,240,240)));
+    background-image:
+        -o-linear-gradient(top,
+            rgb(240,240,240),
+            rgb(210,210,210) 50%,
+            rgb(255,255,255) 50%,
+            rgb(240,240,240));
     border-radius: 3px;
     box-shadow:
         0 0 1px rgba(0,0,0,0.2),
-        inset 0 1px 7px -1px #b9b9b9,
+        inset 0 1px 7px -1px rgba(185,185,185,0.5),
         inset 0 5px 1px #fbfbfb,
         inset 0 6px 0 #fff;
     display: block;
@@ -331,11 +343,23 @@ iframe:last-child {
 
 .switch input:checked + label {
     background-image:
+        -moz-linear-gradient(top,
+            rgb(255,255,255),
+            rgb(225,225,225) 50%,
+            rgb(255,255,255) 50%,
+            rgb(240,240,240));
+    background-image:
         -webkit-gradient(linear, left top, left bottom,
             from(rgb(255,255,255)),
             color-stop(50%, rgb(225,225,225)),
             color-stop(50%, rgb(255,255,255)),
             to(rgb(240,240,240)));
+    background-image:
+        -o-linear-gradient(top,
+            rgb(255,255,255),
+            rgb(225,225,225) 50%,
+            rgb(255,255,255) 50%,
+            rgb(240,240,240));
     box-shadow:
         0 2px 3px rgba(0,0,0,0.4),
         inset 0 -1px 1px #9b9b9b,
