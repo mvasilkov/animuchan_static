@@ -1,16 +1,19 @@
-define(function() {
-    var _bgm
+define(["utils"], function(utils) {
+    var _bgm, _disable = $("#bgm-sfx-disable")
 
     function ready() {
         _bgm = soundManager.createSound({
             autoLoad: true,
             id: "bgm",
             loops: 9000,
+            multiShot: false,
             url: "media/sound/bgm.mp3"
         })
 
+        _disable.remove()
+
         $("#music-on").click(function(event) {
-            // _bgm.play()
+            _bgm[["stop", "play"][this.checked | 0]]()
         })
     }
 

@@ -288,6 +288,21 @@ iframe:last-child {
 
 #bgm-sfx {
     margin: 4px 0 0;
+    position: relative;
+}
+
+#bgm-sfx-disable {
+    background-color: rgba(0,0,0,0.75);
+    border-radius: 5px;
+    color: #fff;
+    height: 70px;
+    left: -4px;
+    line-height: 70px;
+    position: absolute;
+    text-align: center;
+    top: -4px;
+    width: 135px;
+    z-index: 1;
 }
 
 .switch, .switch-legend {
