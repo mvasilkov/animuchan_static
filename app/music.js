@@ -10,7 +10,7 @@ define(function() {
         })
 
         $("#music-on").click(function(event) {
-            _bgm.play()
+            // _bgm.play()
         })
     }
 
