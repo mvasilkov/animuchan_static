@@ -286,12 +286,12 @@ iframe:last-child {
     }
 }
 
-#bgm-sfx {
+#console {
     margin: 4px 0 0;
     position: relative;
 }
 
-#bgm-sfx-disable {
+#console-disable {
     background-color: rgba(0,0,0,0.75);
     border-radius: 5px;
     color: #fff;

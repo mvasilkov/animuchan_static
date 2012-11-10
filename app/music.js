@@ -1,5 +1,5 @@
 define(["utils"], function(utils) {
-    var _bgm, _disable = $("#bgm-sfx-disable")
+    var _bgm, _disable = $("#console-disable")
 
     function ready() {
         _bgm = soundManager.createSound({
