@@ -244,9 +244,9 @@ iframe:last-child {
 }
 
 #next.done {
-    -moz-transition: width 9s linear;
-    -webkit-transition: width 9s linear;
-    -o-transition: width 9s linear;
+    -moz-transition: width 0.5s linear;
+    -webkit-transition: width 0.5s linear;
+    -o-transition: width 0.5s linear;
     width: 55px;
 }
 
@@ -260,8 +260,8 @@ iframe:last-child {
 }
 
 #score {
-    line-height: 40px;
-    padding-left: 25px;
+    line-height: 30px;
+    padding: 5px 25px;
 }
 
 #instructions, #console-disable {
