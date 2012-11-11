@@ -236,9 +236,7 @@ iframe:last-child {
     width: 55px;
 }
 
-#instructions {
-    -moz-animation: slide 2s ease-in-out infinite alternate;
-    -webkit-animation: slide 2s ease-in-out infinite alternate;
+#instructions, #console-disable {
     background-color: rgba(0,0,0,0.75);
     border: 1px solid #f9f9f9;
     box-shadow:
@@ -249,8 +247,14 @@ iframe:last-child {
         0 3px 5px rgba(0,0,0,.1),
         inset 0 10px rgba(255,255,255,0.25);
     color: #fff;
-    padding: 4px 8px;
     position: absolute;
+    z-index: 2;
+}
+
+#instructions {
+    -moz-animation: slide 2s ease-in-out infinite alternate;
+    -webkit-animation: slide 2s ease-in-out infinite alternate;
+    padding: 4px 8px;
     right: 22px;
     top: 64px;
     width: 300px;
@@ -292,17 +296,14 @@ iframe:last-child {
 }
 
 #console-disable {
-    background-color: rgba(0,0,0,0.75);
-    border-radius: 5px;
-    color: #fff;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     height: 70px;
     left: -4px;
     line-height: 70px;
-    position: absolute;
     text-align: center;
     top: -4px;
     width: 135px;
-    z-index: 1;
 }
 
 .switch, .switch-legend {
