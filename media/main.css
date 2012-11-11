@@ -18,6 +18,10 @@
     to {top: 96px}
 }
 
+html:-webkit-full-screen {
+    background: #fbfbfb;
+}
+
 body {
     background: #fbfbfb;
     font: 0.8125em/22px source-code-pro, monospace;
@@ -387,4 +391,13 @@ iframe:last-child {
     line-height: 30px;
     text-align: center;
     width: 41px;
+}
+
+#fullscreen {
+    display: none;
+    font-size: 12px;
+    padding: 0 4px;
+    position: absolute;
+    right: 4px;
+    top: 4px;
 }
