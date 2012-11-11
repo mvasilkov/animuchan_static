@@ -1,5 +1,5 @@
 define(["conf"], function(conf) {
-    var _todo, _addTask, _removeTask, _updateCount, _endGame,
+    var _todo, _addTask, _removeTask, _updateCount, _updateScore, _endGame,
         _next = 0, _levels = ["easy", "normal", "hard"], _level = 0
 
     function push(text) {
@@ -17,12 +17,13 @@ define(["conf"], function(conf) {
         $("#level-restart a").attr("href", "?" + _levels[_level])
     }
 
-    function init(addTask, removeTask, updateCount, endGame) {
+    function init(addTask, removeTask, updateCount, updateScore, endGame) {
         _todo = []
 
         _addTask = addTask
         _removeTask = removeTask
         _updateCount = updateCount
+        _updateScore = updateScore
         _endGame = endGame
 
         _set_level()
@@ -43,6 +44,7 @@ define(["conf"], function(conf) {
             _todo.splice(index, 1)
             _removeTask(text, _todo.length)
             _updateCount(_todo.length)
+            _updateScore(100)
         }
     }
 

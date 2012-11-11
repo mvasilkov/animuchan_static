@@ -1,7 +1,7 @@
 define(["conf", "utils"], function(conf, utils) {
     var _count = $("#count"), _input = $("#input"), _next = $("#next"),
-        _todo = $("#todo"), _countFull = _todo.width(), _advanceGame,
-        _started = false
+        _score = $("#score"), _todo = $("#todo"), _countFull = _todo.width(),
+        _advanceGame, _started = false, _points = 0
 
     function resetNext() {
         utils.defer(_next.addClass, _next, "done")
@@ -53,6 +53,15 @@ define(["conf", "utils"], function(conf, utils) {
         }
     }
 
+    function _fmt(n) {
+        var t = "00000000" + n
+        return t.substr(t.length - conf.SCORE_SIZE)
+    }
+
+    function updateScore(n) {
+        _score.text(_fmt(_points += n))
+    }
+
     function endGame() {
         _next.remove()
     }
@@ -63,6 +72,7 @@ define(["conf", "utils"], function(conf, utils) {
         addTask: addTask,
         removeTask: removeTask,
         updateCount: updateCount,
+        updateScore: updateScore,
         endGame: endGame
     }
 })
