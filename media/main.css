@@ -250,6 +250,20 @@ iframe:last-child {
     width: 55px;
 }
 
+#meta {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 69px;
+    padding: 2px 4px;
+    position: absolute;
+    top: 5px;
+}
+
+#score {
+    line-height: 40px;
+    padding-left: 25px;
+}
+
 #instructions, #console-disable {
     background-color: rgba(0,0,0,0.75);
     border: 1px solid #f9f9f9;
