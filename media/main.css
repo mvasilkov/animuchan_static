@@ -403,6 +403,19 @@ iframe:last-child {
     width: 41px;
 }
 
+#level-select, #level-restart {
+    margin: 4px 0 0;
+}
+
+#level-select .btn, #level-restart .btn {
+    font-size: 12px;
+    z-index: 2; /* fix Bootstrap issue */
+}
+
+#level-select .btn-primary.active {
+    background-color: #0080ff;
+}
+
 #fullscreen {
     display: none;
     font-size: 12px;

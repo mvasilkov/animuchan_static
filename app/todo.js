@@ -1,11 +1,20 @@
 define(["conf"], function(conf) {
-    var _todo, _addTask, _removeTask, _updateCount, _endGame, _next = 0
+    var _todo, _addTask, _removeTask, _updateCount, _endGame,
+        _next = 0, _levels = ["easy", "normal", "hard"], _level = 0
 
     function push(text) {
         _todo.push(text)
 
         _addTask(text)
         _updateCount(_todo.length)
+    }
+
+    function _set_level() {
+        if (location.search.substr(1) == "normal") _level = 1
+        else if (location.search.substr(1) == "hard") _level = 2
+
+        $("#level-select ." + _levels[_level]).addClass("btn-primary active")
+        $("#level-restart a").attr("href", "?" + _levels[_level])
     }
 
     function init(addTask, removeTask, updateCount, endGame) {
@@ -15,6 +24,8 @@ define(["conf"], function(conf) {
         _removeTask = removeTask
         _updateCount = updateCount
         _endGame = endGame
+
+        _set_level()
 
         push("git init")
     }
