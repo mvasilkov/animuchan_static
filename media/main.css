@@ -168,6 +168,12 @@ iframe:last-child {
     -webkit-animation: blink 250ms cubic-bezier(1,0,0,1) infinite;
 }
 
+.loading .task, .loading #count {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
 #term {
     background: #101010;
     bottom: 5px;

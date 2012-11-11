@@ -12,6 +12,9 @@ define(["conf", "utils"], function(conf, utils) {
     function init(advanceGame) {
         _advanceGame = advanceGame
         _next.bind(utils.transitionend, resetNext)
+
+        var body = $("body")
+        utils.defer(body.removeClass, body, "loading")
     }
 
     function readline(text) {
