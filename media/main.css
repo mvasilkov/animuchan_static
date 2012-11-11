@@ -439,3 +439,25 @@ iframe:last-child {
     right: 4px;
     top: 4px;
 }
+
+#game-over {
+    border: 0;
+}
+
+#game-over .modal-body {
+    padding-bottom: 0;
+    text-align: center;
+}
+
+#game-over p {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+#game-over .modal-footer {
+    text-align: center;
+}
+
+#game-over .btn {
+    font-size: 12px;
+}
