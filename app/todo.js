@@ -14,7 +14,7 @@ define(["conf"], function(conf) {
         else if (location.search.substr(1) == "hard") _level = 2
 
         $("#level-select ." + _levels[_level]).addClass("btn-primary active")
-        $("#level-restart a").attr("href", "?" + _levels[_level])
+        $("#level-restart a, #game-over a").attr("href", "?" + _levels[_level])
     }
 
     function init(addTask, removeTask, updateCount, updateScore, endGame) {
