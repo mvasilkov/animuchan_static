@@ -7,7 +7,7 @@ if (!Array.prototype.indexOf) {
 require(["fullscreen", "keyboard", "music", "todo", "ui"],
     function(fullscreen, keyboard, music, todo, ui) {
         fullscreen.init()
-        keyboard.init(ui.readline, todo.done)
+        keyboard.init(ui.readline, todo.done, music.blip)
         music.init()
         todo.init(ui.addTask, ui.removeTask, ui.updateCount, ui.endGame)
         ui.init(todo.advance)

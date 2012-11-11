@@ -5,7 +5,7 @@ define(["conf"], function(conf) {
         return conf.PRINTABLE.indexOf(ch) !== -1
     }
 
-    function init(keyboardUpdate, keyboardReturn) {
+    function init(keyboardUpdate, keyboardReturn, blip) {
         $(document.documentElement).keydown(function(event) {
             if (event.which === conf.BACKSPACE) {
                 _buffer = _buffer.substr(0, _buffer.length - 1)
@@ -32,9 +32,11 @@ define(["conf"], function(conf) {
                     _buffer += ch
                     keyboardUpdate(_buffer)
                 }
+                else blip()
 
                 if (event.preventDefault) event.preventDefault()
             }
+            else blip()
         })
     }
 
