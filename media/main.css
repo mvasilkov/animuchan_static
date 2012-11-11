@@ -212,6 +212,10 @@ iframe:last-child {
     white-space: pre;
 }
 
+#input {
+    white-space: pre;
+}
+
 #warp {
     background: #f9f9f9 url("warp_bg.png");
     border: 1px solid #404040;

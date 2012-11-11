@@ -8,6 +8,10 @@ define(["requestAnimationFrame"], function(requestAnimationFrame) {
         }, 1)
     }
 
+    function normalize(cmd) {
+        return $.trim(cmd).replace(/  +/, " ")
+    }
+
     var _transitionend = [
         "transitionend",
         "webkitTransitionEnd",
@@ -16,6 +20,7 @@ define(["requestAnimationFrame"], function(requestAnimationFrame) {
 
     return {
         defer: defer,
+        normalize: normalize,
         transitionend: _transitionend
     }
 })

@@ -1,4 +1,4 @@
-define(["conf"], function(conf) {
+define(["conf", "utils"], function(conf, utils) {
     var _buffer = ""
 
     function isPrintable(ch) {
@@ -22,7 +22,7 @@ define(["conf"], function(conf) {
 
             if (event.which === conf.RETURN) {
                 keyboardUpdate("")
-                keyboardReturn(_buffer)
+                keyboardReturn(utils.normalize(_buffer))
                 _buffer = ""
 
                 if (event.preventDefault) event.preventDefault()
