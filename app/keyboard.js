@@ -8,8 +8,11 @@ define(["conf", "utils"], function(conf, utils) {
     function init(keyboardUpdate, keyboardReturn, blip) {
         $(document.documentElement).keydown(function(event) {
             if (event.which === conf.BACKSPACE) {
-                _buffer = _buffer.substr(0, _buffer.length - 1)
-                keyboardUpdate(_buffer)
+                if (_buffer.length !== 0) {
+                    _buffer = _buffer.substr(0, _buffer.length - 1)
+                    keyboardUpdate(_buffer)
+                }
+                else blip()
 
                 if (event.preventDefault) event.preventDefault()
             }

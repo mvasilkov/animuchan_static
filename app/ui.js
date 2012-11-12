@@ -67,6 +67,7 @@ define(["conf", "utils"], function(conf, utils) {
     function endGame() {
         _next.remove()
 
+        $(document.documentElement).unbind("keypress")
         $("#high-score").text(_fmt(_points))
         $("#game-over").modal({ backdrop: "static", keyboard: false })
     }
