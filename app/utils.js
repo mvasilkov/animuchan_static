@@ -9,7 +9,7 @@ define(["requestAnimationFrame"], function(requestAnimationFrame) {
     }
 
     function normalize(cmd) {
-        return $.trim(cmd).replace(/  +/, " ")
+        return $.trim(cmd).replace(/  +/, " ").replace(/^g /, "git ")
     }
 
     var _transitionend = [
