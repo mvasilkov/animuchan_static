@@ -5,10 +5,8 @@ if (!Array.prototype.indexOf) {
 }
 
 require(["fullscreen", "keyboard", "music", "todo", "ui"],
-    function(fullscreen, keyboard, music, todo, ui) {
-        fullscreen.init()
-        keyboard.init()
-        music.init()
-        todo.init()
-        ui.init()
+    function() {
+        for (var i = 0; i < arguments.length; ++i) {
+            arguments[i].init()
+        }
     })
