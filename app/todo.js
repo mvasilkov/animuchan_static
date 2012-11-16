@@ -44,7 +44,7 @@ define(["conf"], function(conf) {
             _todo.splice(index, 1)
             _removeTask(text, _todo.length)
             _updateCount(_todo.length)
-            _updateScore(100)
+            _updateScore(100 + _level * 100)
         }
     }
 
