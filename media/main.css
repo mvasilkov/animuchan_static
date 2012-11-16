@@ -354,7 +354,7 @@ iframe:last-child {
 }
 
 .switch input {
-    opacity: 0;
+    visibility: hidden;
 }
 
 .switch label {
