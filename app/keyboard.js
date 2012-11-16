@@ -5,7 +5,11 @@ define(["conf", "utils"], function(conf, utils) {
         return conf.PRINTABLE.indexOf(ch) !== -1
     }
 
-    function init(keyboardUpdate, keyboardReturn, blip) {
+    function init() {
+        var keyboardUpdate = require("ui").readline,
+            keyboardReturn = require("todo").done,
+            blip = require("music").blip
+
         $(document.documentElement).keydown(function(event) {
             if (event.which === conf.BACKSPACE) {
                 if (_buffer.length !== 0) {

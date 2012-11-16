@@ -17,14 +17,16 @@ define(["conf"], function(conf) {
         $("#level-restart a, #game-over a").attr("href", "?" + _levels[_level])
     }
 
-    function init(addTask, removeTask, updateCount, updateScore, endGame) {
+    function init() {
+        var ui = require("ui")
+
         _todo = []
 
-        _addTask = addTask
-        _removeTask = removeTask
-        _updateCount = updateCount
-        _updateScore = updateScore
-        _endGame = endGame
+        _addTask = ui.addTask
+        _removeTask = ui.removeTask
+        _updateCount = ui.updateCount
+        _updateScore = ui.updateScore
+        _endGame = ui.endGame
 
         _set_level()
 

@@ -9,8 +9,8 @@ define(["conf", "utils"], function(conf, utils) {
         _advanceGame()
     }
 
-    function init(advanceGame) {
-        _advanceGame = advanceGame
+    function init() {
+        _advanceGame = require("todo").advance
         _next.bind(utils.transitionend, resetNext)
 
         _score.tooltip({ placement: "bottom" })
