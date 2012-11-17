@@ -10,8 +10,10 @@ define(["conf"], function(conf) {
     }
 
     function _set_level() {
-        if (location.search.substr(1) == "normal") _level = 1
-        else if (location.search.substr(1) == "hard") _level = 2
+        var opt = location.search.substr(1)
+
+        if (opt == "normal") _level = 1
+        else if (opt == "hard") _level = 2
 
         $("#level-select ." + _levels[_level]).addClass("btn-primary active")
         $("#level-restart a, #game-over a").attr("href", "?" + _levels[_level])

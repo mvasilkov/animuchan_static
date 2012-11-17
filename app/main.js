@@ -4,7 +4,7 @@ if (!Array.prototype.indexOf) {
     throw new Error(err)
 }
 
-require(["fullscreen", "keyboard", "music", "todo", "ui"],
+require(["fullscreen", "game", "keyboard", "music", "todo", "ui"],
     function() {
         for (var i = 0; i < arguments.length; ++i) {
             arguments[i].init()
