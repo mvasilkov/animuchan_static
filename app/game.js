@@ -42,7 +42,7 @@ define(["Mob", "RectProp", "requestAnimationFrame", "conf"],
                 _mobs.push(mob)
             })
 
-            render()
+            requestAnimationFrame(render)
         }
 
         return {
