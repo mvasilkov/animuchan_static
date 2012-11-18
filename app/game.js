@@ -1,4 +1,10 @@
-define(["RectProp", "requestAnimationFrame", "conf"], function(RectProp, requestAnimationFrame, conf) {
+define(["Mob", "RectProp", "requestAnimationFrame", "conf"], function(Mob, RectProp, requestAnimationFrame, conf) {
+    var _game = $("#game"), _mobs = []
+
+    function render() {
+        requestAnimationFrame(render)
+    }
+
     function init() {
         var real_width = (960 - 325) / conf.GAME_SCALE,
             real_height = (540 - 87) / conf.GAME_SCALE,
@@ -14,6 +20,17 @@ define(["RectProp", "requestAnimationFrame", "conf"], function(RectProp, request
         for (var i = 0; i < props.length; ++i) {
             props[i].render()
         }
+
+        _game.click(function(event) {
+            var	offset = $(this).offset(),
+                left = (event.pageX - offset.left) / 20,
+                top = (event.pageY - offset.top) / 20,
+                mob = new Mob(left, top)
+
+            _mobs.push(mob)
+        })
+
+        render()
     }
 
     return {
