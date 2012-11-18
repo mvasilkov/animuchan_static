@@ -465,3 +465,11 @@ iframe:last-child {
 #game-over .btn {
     font-size: 12px;
 }
+
+.rect-prop {
+    background: rgba(255,0,128,0.5);
+    border: 1px solid #ff0080;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+}
