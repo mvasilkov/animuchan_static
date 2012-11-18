@@ -10,3 +10,6 @@ def optimize():
     local("r.js -o baseUrl=app name=almond include=main out=upload/app.js wrap=true")
     # clean up
     local("rm app/almond.js")
+
+def upload():
+    local("rsync -Cavz lib media upload/index.html upload/app.js animuchan:git-invaders")
