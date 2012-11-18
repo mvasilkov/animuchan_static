@@ -473,3 +473,10 @@ iframe:last-child {
     box-sizing: border-box;
     position: absolute;
 }
+
+.mob {
+    background: rgba(128,255,0,0.5);
+    height: 40px;
+    position: absolute;
+    width: 55px;
+}
