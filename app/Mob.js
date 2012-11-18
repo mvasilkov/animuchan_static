@@ -1,4 +1,4 @@
-define(["conf"], function(conf) {
+define(["conf", "utils"], function(conf, utils) {
     var _game = $("#game"),
         _mobWidth = 55 / conf.GAME_SCALE,
         _mobHeight = 40 / conf.GAME_SCALE
@@ -21,16 +21,16 @@ define(["conf"], function(conf) {
         this.body = world.CreateBody(def)
         this.body.CreateFixture(fixdef)
 
-        this._im = $("<img class=mob src=media/mob.png width=55 height=40>")
-        _game.append(this._im)
+        this.im = $("<img class=mob src=media/mob.png width=55 height=40>")[0]
+        _game.append(this.im)
     }
 
     Mob.prototype.render = function() {
         var position = this.body.GetPosition()
-        this._im.css({
-            left: (position.get_x() - _mobWidth / 2) * conf.GAME_SCALE,
-            top: (position.get_y() - _mobHeight / 2) * conf.GAME_SCALE
-        })
+
+        this.im.style.left = (position.get_x() - _mobWidth / 2) * conf.GAME_SCALE + "px"
+        this.im.style.top = (position.get_y() - _mobHeight / 2) * conf.GAME_SCALE + "px"
+        this.im.style[utils.transform] = "rotate(" + this.body.GetAngle() + "rad)"
     }
 
     return Mob

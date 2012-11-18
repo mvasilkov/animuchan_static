@@ -12,6 +12,13 @@ define(["requestAnimationFrame"], function(requestAnimationFrame) {
         return $.trim(cmd).replace(/  +/, " ").replace(/^g /, "git ")
     }
 
+    var _transform = (function(obj) {
+        for (var p in { MozTransform:1, WebkitTransform:1, OTransform:1, msTransform:1 })
+            if (typeof obj.style[p] != "undefined") return p
+
+        return "transform"
+    })(document.createElement("p"))
+
     var _transitionend = [
         "transitionend",
         "webkitTransitionEnd",
@@ -21,6 +28,7 @@ define(["requestAnimationFrame"], function(requestAnimationFrame) {
     return {
         defer: defer,
         normalize: normalize,
+        transform: _transform,
         transitionend: _transitionend
     }
 })

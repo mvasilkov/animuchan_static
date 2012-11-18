@@ -60,7 +60,7 @@ iframe:last-child {
     -ms-user-select: none;
 }
 
-#game, .tooltip {
+#game, .tooltip, .mob {
     -webkit-backface-visibility: hidden;
     -webkit-transform: translate3d(0,0,0);
 }
@@ -475,6 +475,8 @@ iframe:last-child {
 }
 
 .mob {
+    display: block;
+    -webkit-user-drag: none;
     height: 40px;
     position: absolute;
     width: 55px;

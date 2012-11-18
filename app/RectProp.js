@@ -17,23 +17,23 @@ define(["conf"], function(conf) {
         this.body = world.CreateBody(def)
         this.body.CreateFixture(fixdef)
 
-        this._width = width
-        this._height = height
+        this.width = width
+        this.height = height
     }
 
     RectProp.prototype.render = function() {
-        if (typeof this._rect === "undefined") {
-            this._rect = $("<div class=rect-prop>")
+        if (typeof this.rect === "undefined") {
+            this.rect = $("<div class=rect-prop>")
                 /* initialize */
-                .width(this._width * conf.GAME_SCALE)
-                .height(this._height * conf.GAME_SCALE)
+                .width(this.width * conf.GAME_SCALE)
+                .height(this.height * conf.GAME_SCALE)
                 .appendTo(_game)
         }
 
         var position = this.body.GetPosition()
-        this._rect.css({
-            left: (position.get_x() - this._width / 2) * conf.GAME_SCALE,
-            top: (position.get_y() - this._height / 2) * conf.GAME_SCALE
+        this.rect.css({
+            left: (position.get_x() - this.width / 2) * conf.GAME_SCALE,
+            top: (position.get_y() - this.height / 2) * conf.GAME_SCALE
         })
     }
 
