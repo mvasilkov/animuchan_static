@@ -231,7 +231,7 @@ iframe:last-child {
 }
 
 #warp::after {
-    background-image: url("warp_inv.png");
+    background-image: url("warp.png");
     border: 1px solid #f9f9f9;
     content: "";
     height: 40px;
@@ -475,7 +475,6 @@ iframe:last-child {
 }
 
 .mob {
-    background: rgba(128,255,0,0.5);
     height: 40px;
     position: absolute;
     width: 55px;
