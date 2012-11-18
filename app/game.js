@@ -35,8 +35,8 @@ define(["Mob", "RectProp", "requestAnimationFrame", "conf"],
 
             _game.click(function(event) {
                 var	offset = $(this).offset(),
-                    left = (event.pageX - offset.left) / 20,
-                    top = (event.pageY - offset.top) / 20,
+                    left = (event.pageX - offset.left) / conf.GAME_SCALE,
+                    top = (event.pageY - offset.top) / conf.GAME_SCALE,
                     mob = new Mob(_world, left, top)
 
                 _mobs.push(mob)
@@ -45,7 +45,15 @@ define(["Mob", "RectProp", "requestAnimationFrame", "conf"],
             requestAnimationFrame(render)
         }
 
+        function addMob() {
+            var x = (7 + 55 / 2) / conf.GAME_SCALE,
+                y = (7 + 40 / 2) / conf.GAME_SCALE
+
+            _mobs.push(new Mob(_world, x, y))
+        }
+
         return {
-            init: init
+            init: init,
+            addMob: addMob
         }
     })

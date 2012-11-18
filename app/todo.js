@@ -5,6 +5,7 @@ define(["conf"], function(conf) {
     function push(text) {
         _todo.push(text)
 
+        _addMob()
         _addTask(text)
         _updateCount(_todo.length)
     }
@@ -20,10 +21,11 @@ define(["conf"], function(conf) {
     }
 
     function init() {
-        var ui = require("ui")
+        var game = require("game"), ui = require("ui")
 
         _todo = []
 
+        _addMob = game.addMob
         _addTask = ui.addTask
         _removeTask = ui.removeTask
         _updateCount = ui.updateCount
