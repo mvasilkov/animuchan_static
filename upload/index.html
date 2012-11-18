@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>git-invaders ★ GitHub Game Off 2012</title>
+        <link rel="stylesheet" href="lib/bootstrap/bootstrap.css">
+        <link rel="stylesheet" href="media/main.css">
+        <script src="//use.edgefonts.net/source-code-pro:n4.js"></script>
+    </head>
+    <body class="loading">
+        <div id="game">
+            <div class="zone" id="todo">
+                <div id="count"></div>
+            </div>
+            <div class="zone" id="term">
+                <ul>
+                    <li>Type `git init` and press return to start.</li>
+                    <li>------------------------------------------</li>
+                    <li><em>git-inv></em> <span id="input"></span><span class="text-caret"> </span></li>
+                </ul>
+                <div class="interlace"></div>
+            </div>
+            <div class="zone" id="warp">
+                <div id="next"></div>
+            </div>
+            <div id="meta">
+                <h2 id="score" title="Score">000000000</h2>
+            </div>
+            <div id="instructions">
+                <i class="icon-question-sign"></i> Instructions:<br>
+                - type in commands<br>
+                - kill space invaders<br>
+                - be awesome<br>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="span4">
+                    <h1>git-invaders: the game</h1>
+                    <div id="level-select" class="btn-group">
+                        <a href="?easy" class="btn btn-mini easy">Easy</a>
+                        <a href="?normal" class="btn btn-mini normal">Normal</a>
+                        <a href="?hard" class="btn btn-mini hard">Hard</a>
+                    </div>
+                    <div id="level-restart" class="btn-group">
+                        <a href="?easy" class="btn btn-mini">Restart</a>
+                    </div>
+                </div>
+                <div class="span4">
+                    <h2>music and sound</h2>
+                    <div id="console">
+                        <span class="switch">
+                            <input type="checkbox" name="music-on" id="music-on">
+                            <label for="music-on"></label>
+                        </span>
+                        <span class="switch-legend">
+                            <span class="on">on</span>
+                            <span class="off">off</span>
+                        </span>
+                        <span class="switch">
+                            <input type="checkbox" name="sound-on" id="sound-on" checked>
+                            <label for="sound-on"></label>
+                        </span>
+                        <div id="console-disable">(out of order)</div>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="well well-small">
+                        <iframe src="http://ghbtns.com/github-btn.html?user=mvasilkov&repo=game-off-2012&type=fork&count=true"
+                          allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="20px"></iframe>
+                        <iframe src="http://ghbtns.com/github-btn.html?user=mvasilkov&type=follow&count=true"
+                          allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="20px"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="game-over" class="modal hide fade">
+            <div class="modal-header">
+                <h3>Game Over</h3>
+            </div>
+            <div class="modal-body">
+                <p>High score: <span id="high-score">000000000</span></p>
+                <img src="media/yuru_yuri.gif" alt="" width="400" height="225">
+            </div>
+            <div class="modal-footer">
+                <a href="?easy" class="btn btn-mini btn-primary">Restart</a>
+            </div>
+        </div>
+        <a href="https://github.com/mvasilkov/game-off-2012" id="github">Fork me on GitHub</a>
+        <a href="javascript:" id="fullscreen" class="btn">Fullscreen</a>
+        <script src="lib/box2d.js"></script>
+        <script src="lib/jquery-1.8.2.js"></script>
+        <script src="lib/bootstrap/bootstrap.js"></script>
+        <script src="lib/soundmanager2-nodebug.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
