@@ -23,8 +23,8 @@ define(["conf", "utils"], function(conf, utils) {
 
         this.body = world.CreateBody(def)
         this.body.CreateFixture(fixdef)
-
-        this.im = $('<img class="mob" src="media/mob.png" width="55" height="40">')[0]
+        var image = conf.MOB_IMAGE[Math.floor(Math.random()*conf.MOB_IMAGE.length)]
+        this.im = $('<img class="mob" src="media/'+image+'" width="55" height="40">')[0]
 
         this.im.ondragstart = function() { return false }
         this.render()
