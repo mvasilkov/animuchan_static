@@ -1,6 +1,6 @@
 define(["Mob", "RectProp", "requestAnimationFrame", "conf"],
     function(Mob, RectProp, requestAnimationFrame, conf) {
-        var _game = $("#game"), _world, _mobs = [],
+        var _game = $("#game"), _world, _mobs = [], _game_width = 0,
             _lastUpdate = new Date().getTime()
 
         function render() {
@@ -19,11 +19,10 @@ define(["Mob", "RectProp", "requestAnimationFrame", "conf"],
         function init() {
             var real_width = (960 - 325) / conf.GAME_SCALE,
                 real_height = (540 - 87) / conf.GAME_SCALE,
-                gravity = new Box2D.b2Vec2(0, 1),
+                gravity = new Box2D.b2Vec2(0, 0.05),
                 props = []
-
+            _game_width = real_width
             _world = new Box2D.b2World(gravity)
-
             props.push(new RectProp(_world, real_width / 2, 0, real_width, 1))
             props.push(new RectProp(_world, real_width / 2, real_height, real_width, 1))
             props.push(new RectProp(_world, 0, real_height / 2, 1, real_height - 1))
@@ -33,27 +32,30 @@ define(["Mob", "RectProp", "requestAnimationFrame", "conf"],
                 props[i].render()
             }
 
-            _game.click(function(event) {
-                var	offset = $(this).offset(),
-                    left = (event.pageX - offset.left) / conf.GAME_SCALE,
-                    top = (event.pageY - offset.top) / conf.GAME_SCALE,
-                    mob = new Mob(_world, left, top)
-
-                _mobs.push(mob)
-            })
-
             requestAnimationFrame(render)
         }
 
-        function addMob() {
+        function addMob(text) {
             var x = (7 + 55 / 2) / conf.GAME_SCALE,
                 y = (7 + 40 / 2) / conf.GAME_SCALE
+            x = Math.floor(Math.random() * (_game_width - x)) + x
+            _mobs.push(new Mob(_world, x, y, text))
+        }
+        
+        function removeMob(text) {
+            for (var i = 0; i < _mobs.length; ++i) {
+                if (_mobs[i].text == text) {
+                    _mobs[i].remove()
+                    _mobs.splice(i, 1)
+                    return
+                }
+            }
 
-            _mobs.push(new Mob(_world, x, y))
         }
 
         return {
             init: init,
-            addMob: addMob
+            addMob: addMob,
+            removeMob: removeMob
         }
     })

@@ -3,7 +3,7 @@ define(["conf", "utils"], function(conf, utils) {
         _mobWidth = 55 / conf.GAME_SCALE,
         _mobHeight = 40 / conf.GAME_SCALE
 
-    function Mob(world, left, top) {
+    function Mob(world, left, top, text) {
         var def = new Box2D.b2BodyDef()
         def.set_type(Box2D.b2_dynamicBody)
         def.set_position(new Box2D.b2Vec2(left, top))
@@ -18,12 +18,18 @@ define(["conf", "utils"], function(conf, utils) {
         fixdef.set_restitution(0.4)
         fixdef.set_shape(poly)
 
+        this.world = world
+        this.text = text
+
         this.body = world.CreateBody(def)
         this.body.CreateFixture(fixdef)
 
-        this.im = $("<img class=mob src=media/mob.png width=55 height=40>")[0]
+        var image = conf.MOB_IMAGE[Math.floor(Math.random()*conf.MOB_IMAGE.length)]
+        this.im = $('<img class="mob" src="media/'+image+'" width="55" height="40">')[0]
+
         this.im.ondragstart = function() { return false }
         this.render()
+        
         _game.append(this.im)
     }
 
@@ -33,6 +39,11 @@ define(["conf", "utils"], function(conf, utils) {
         this.im.style.left = (position.get_x() - _mobWidth / 2) * conf.GAME_SCALE + "px"
         this.im.style.top = (position.get_y() - _mobHeight / 2) * conf.GAME_SCALE + "px"
         this.im.style[utils.transform] = "rotate(" + this.body.GetAngle() + "rad)"
+    }
+    
+    Mob.prototype.remove = function() {
+        $(this.im).remove()
+        this.world.DestroyBody(this.body)
     }
 
     return Mob
