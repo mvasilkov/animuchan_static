@@ -1,6 +1,7 @@
 define(["conf"], function(conf) {
     var _todo, _addTask, _removeTask, _updateCount, _updateScore, _endGame,
-        _next, _changeCSS = 0, _levels = ["easy", "normal", "hard"], _level = 0
+        _next, _changeCSS = 0, _levels = ["easy", "normal", "hard"], _level = 0,
+        _speed = 2.5
 
     function push(text) {
         _todo.push(text)
@@ -12,13 +13,12 @@ define(["conf"], function(conf) {
 
     function _set_level() {
         var opt = location.search.substr(1)
-        var speed = 2.5
 
         if (opt == "normal") _level = 1
         else if (opt == "hard") _level = 2
 
-        speed = speed - _level
-        changeSpeed(speed)
+        _speed = _speed - _level
+        changeSpeed()
         $("#level-select ." + _levels[_level]).addClass("btn-primary active")
         $("#level-restart a, #game-over a").attr("href", "?" + _levels[_level])
     }
@@ -48,10 +48,12 @@ define(["conf"], function(conf) {
         else push("git "+conf.COMMANDS[Math.floor(Math.random()*conf.COMMANDS.length)]) // FIXME
     }
 
-    function changeSpeed(speed) {
-        _changeCSS('#next.done', '-moz-transition: width '+speed+
-                                 's linear;-webkit-transition: width '+speed+
-                                 's linear;-o-transition: width '+speed+'s linear;')
+    function changeSpeed() {
+        _speed = _speed - 0.1*(1+_level)
+        console.log('new speed', _speed)
+        _changeCSS('#next.done', '-moz-transition: width '+_speed+
+                                 's linear;-webkit-transition: width '+_speed+
+                                 's linear;-o-transition: width '+_speed+'s linear;')
     }
 
     function done(text) {

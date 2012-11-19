@@ -1,4 +1,4 @@
-define(["conf", "utils"], function(conf, utils) {
+define(["conf", "utils", "todo"], function(conf, utils, todo) {
     var _count = $("#count"), _input = $("#input"), _next = $("#next"),
         _score = $("#score"), _todo = $("#todo"), _countFull = _todo.width(),
         _advanceGame, _started = false, _points = 0
@@ -12,7 +12,6 @@ define(["conf", "utils"], function(conf, utils) {
     function init() {
         _advanceGame = require("todo").advance
         _next.bind(utils.transitionend, resetNext)
-
         _score.tooltip({ placement: "bottom" })
 
         var body = $("body")
@@ -62,6 +61,7 @@ define(["conf", "utils"], function(conf, utils) {
 
     function updateScore(n) {
         _score.text(_fmt(_points += n))
+        if (_points % 1000 == 0) todo.changeSpeed()
     }
 
     function endGame() {
@@ -76,7 +76,7 @@ define(["conf", "utils"], function(conf, utils) {
         // Get last stylesheet
         var css = document.styleSheets[(document.styleSheets.length - 1)];
         if(css.addRule) css.addRule(selector, rule)
-        else if (stylesheet.insertRule) stylesheet.insertRule(selector + ' { ' + rule + ' }', stylesheet.cssRules.length)
+        else if (css.insertRule) css.insertRule(selector + ' { ' + rule + ' }', css.cssRules.length)
     }
 
     return {
