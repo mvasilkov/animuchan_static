@@ -2,7 +2,7 @@ from fabric.api import local
 
 def optimize():
     # unlink old copy
-    local("unlink app/almond.js")
+    local("rm -f app/almond.js")
     # initialize
     local("ln -s ../lib/almond.js app/almond.js")
     # build html
