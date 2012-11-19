@@ -72,6 +72,13 @@ define(["conf", "utils"], function(conf, utils) {
         $("#game-over").modal({ backdrop: "static", keyboard: false })
     }
 
+    function changeCSS(selector, rule) {
+        // Get last stylesheet
+        var css = document.styleSheets[(document.styleSheets.length - 1)];
+        if(css.addRule) css.addRule(selector, rule)
+        else if (stylesheet.insertRule) stylesheet.insertRule(selector + ' { ' + rule + ' }', stylesheet.cssRules.length)
+    }
+
     return {
         init: init,
         readline: readline,
@@ -79,6 +86,7 @@ define(["conf", "utils"], function(conf, utils) {
         removeTask: removeTask,
         updateCount: updateCount,
         updateScore: updateScore,
-        endGame: endGame
+        endGame: endGame,
+        changeCSS: changeCSS
     }
 })
