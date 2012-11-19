@@ -17,7 +17,7 @@ define(["conf"], function(conf) {
         if (opt == "normal") _level = 1
         else if (opt == "hard") _level = 2
 
-        _speed = _speed - _level
+        _speed = _speed - _level + 0.1*(1+_level)
         changeSpeed()
         $("#level-select ." + _levels[_level]).addClass("btn-primary active")
         $("#level-restart a, #game-over a").attr("href", "?" + _levels[_level])
@@ -59,6 +59,7 @@ define(["conf"], function(conf) {
     function done(text) {
         var index = _todo.indexOf(text)
         if (index !== -1) {
+            console.log(index)
             _todo.splice(index, 1)
             _removeTask(text, _todo.length)
             _updateCount(_todo.length)
