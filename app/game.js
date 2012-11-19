@@ -33,15 +33,6 @@ define(["Mob", "RectProp", "requestAnimationFrame", "conf"],
                 props[i].render()
             }
 
-            //_game.click(function(event) {
-            //    var	offset = $(this).offset(),
-            //        left = (event.pageX - offset.left) / conf.GAME_SCALE,
-            //        top = (event.pageY - offset.top) / conf.GAME_SCALE,
-            //        mob = new Mob(_world, left, top)
-            //
-            //    _mobs.push(mob)
-            //})
-
             requestAnimationFrame(render)
         }
 
