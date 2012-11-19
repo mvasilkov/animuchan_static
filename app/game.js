@@ -45,15 +45,27 @@ define(["Mob", "RectProp", "requestAnimationFrame", "conf"],
             requestAnimationFrame(render)
         }
 
-        function addMob() {
+        function addMob(text) {
             var x = (7 + 55 / 2) / conf.GAME_SCALE,
                 y = (7 + 40 / 2) / conf.GAME_SCALE
 
-            _mobs.push(new Mob(_world, x, y))
+            _mobs.push(new Mob(_world, x, y, text))
+        }
+        
+        function removeMob(text) {
+            for (var i = 0; i < _mobs.length; ++i) {
+                if (_mobs[i].text == text) {
+                    _mobs[i].remove()
+                    _mobs.splice(i, 1)
+                    return
+                }
+            }
+
         }
 
         return {
             init: init,
-            addMob: addMob
+            addMob: addMob,
+            removeMob: removeMob
         }
     })

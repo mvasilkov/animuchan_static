@@ -1,4 +1,4 @@
-define(["conf", "utils", "todo"], function(conf, utils, todo) {
+define(["conf", "utils", "todo", "game"], function(conf, utils, todo, game) {
     var _count = $("#count"), _input = $("#input"), _next = $("#next"),
         _score = $("#score"), _todo = $("#todo"), _countFull = _todo.width(),
         _advanceGame, _started = false, _points = 0
@@ -37,6 +37,7 @@ define(["conf", "utils", "todo"], function(conf, utils, todo) {
         if (!remaining) resetNext()
 
         var task = _todo.children(".task[data-text=\"" + text + "\"]").first()
+        game.removeMob(text)
         task.removeClass("active").bind(utils.transitionend, function() {
             var replacement = $("<div class=replacement>")
             $(this).replaceWith(replacement)

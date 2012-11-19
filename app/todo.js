@@ -6,7 +6,7 @@ define(["conf"], function(conf) {
     function push(text) {
         _todo.push(text)
 
-        _addMob()
+        _addMob(text)
         _addTask(text)
         _updateCount(_todo.length)
     }
