@@ -59,7 +59,6 @@ define(["conf"], function(conf) {
     function done(text) {
         var index = _todo.indexOf(text)
         if (index !== -1) {
-            console.log(index)
             _todo.splice(index, 1)
             _removeTask(text, _todo.length)
             _updateCount(_todo.length)

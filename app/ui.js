@@ -36,7 +36,7 @@ define(["conf", "utils", "todo"], function(conf, utils, todo) {
 
         if (!remaining) resetNext()
 
-        var task = _todo.children(".task[data-text=\"" + text + "\"]")
+        var task = _todo.children(".task[data-text=\"" + text + "\"]").first()
         task.removeClass("active").bind(utils.transitionend, function() {
             var replacement = $("<div class=replacement>")
             $(this).replaceWith(replacement)
