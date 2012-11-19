@@ -41,7 +41,7 @@ define(["conf"], function(conf) {
         if (_todo.length === conf.TODO_SIZE) {
             _endGame()
         }
-        else push("git " + (++_next)) // FIXME
+        else push("git "+conf.COMMANDS[Math.floor(Math.random()*conf.COMMANDS.length)]) // FIXME
     }
 
     function done(text) {
