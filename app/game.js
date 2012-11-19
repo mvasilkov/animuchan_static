@@ -19,11 +19,10 @@ define(["Mob", "RectProp", "requestAnimationFrame", "conf"],
         function init() {
             var real_width = (960 - 325) / conf.GAME_SCALE,
                 real_height = (540 - 87) / conf.GAME_SCALE,
-                gravity = new Box2D.b2Vec2(0, 1),
+                gravity = new Box2D.b2Vec2(0, 0.05),
                 props = []
             _game_width = real_width
             _world = new Box2D.b2World(gravity)
-
             props.push(new RectProp(_world, real_width / 2, 0, real_width, 1))
             props.push(new RectProp(_world, real_width / 2, real_height, real_width, 1))
             props.push(new RectProp(_world, 0, real_height / 2, 1, real_height - 1))
