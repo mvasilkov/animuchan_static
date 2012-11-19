@@ -34,7 +34,7 @@ define(["conf", "utils"], function(conf, utils) {
                     }
                 });
             }
-            setTimeout(check_keys(), 1000);
+            setTimeout(check_keys(), 250);
             press_count++;
 
             if (event.metaKey || event.altKey || event.ctrlKey) return
