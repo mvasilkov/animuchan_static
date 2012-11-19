@@ -8,7 +8,8 @@ define(["conf", "utils"], function(conf, utils) {
     function init() {
         var keyboardUpdate = require("ui").readline,
             keyboardReturn = require("todo").done,
-            blip = require("music").blip
+            blip = require("music").blip,
+            press_count = 0;
 
         $(document.documentElement).keydown(function(event) {
             if (event.which === conf.BACKSPACE) {
@@ -23,6 +24,19 @@ define(["conf", "utils"], function(conf, utils) {
         })
 
         $(document.documentElement).keypress(function(event) {
+            check_keys = function(){
+                var keys_pressed = press_count;
+                return (function() {
+                    if (keys_pressed == press_count-1) { 
+                        $('.text-caret').addClass('text-caret-animated')
+                    } else {
+                        $('.text-caret').removeClass('text-caret-animated')
+                    }
+                });
+            }
+            setTimeout(check_keys(), 1000);
+            press_count++;
+
             if (event.metaKey || event.altKey || event.ctrlKey) return
 
             var ch = String.fromCharCode(event.which).toLowerCase()

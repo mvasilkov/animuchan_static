@@ -209,11 +209,13 @@ iframe:last-child {
 }
 
 #term .text-caret {
-    -moz-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
-    -webkit-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
     background: #fff;
     box-shadow: 0 0 2px rgba(255,255,255,0.75);
     white-space: pre;
+}
+#term .text-caret-animated {
+    -moz-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
+    -webkit-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
 }
 
 #input {
