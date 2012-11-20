@@ -37,7 +37,7 @@ define(["conf", "utils"], function(conf, utils) {
         this.im.style.top = (position.get_y() - _mobHeight / 2) * conf.GAME_SCALE + "px"
         this.im.style[utils.transform] = "rotate(" + this.body.GetAngle() + "rad)"
     }
-    
+
     Mob.prototype.remove = function() {
         $(this.im).remove()
         this.world.DestroyBody(this.body)

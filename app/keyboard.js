@@ -1,5 +1,5 @@
 define(["conf", "utils"], function(conf, utils) {
-    var _buffer = ""
+    var _caret = $(".text-caret"), _buffer = ""
 
     function isPrintable(ch) {
         return conf.PRINTABLE.indexOf(ch) !== -1
@@ -9,7 +9,12 @@ define(["conf", "utils"], function(conf, utils) {
         var keyboardUpdate = require("ui").readline,
             keyboardReturn = require("todo").done,
             blip = require("music").blip,
-            press_count = 0;
+            keypressId = 0
+
+        function testAnimated(n) {
+            return function() { _caret[n === keypressId?
+                "addClass": "removeClass"]("text-caret-animated") }
+        }
 
         $(document.documentElement).keydown(function(event) {
             if (event.which === conf.BACKSPACE) {
@@ -24,20 +29,9 @@ define(["conf", "utils"], function(conf, utils) {
         })
 
         $(document.documentElement).keypress(function(event) {
-            check_keys = function(){
-                var keys_pressed = press_count;
-                return (function() {
-                    if (keys_pressed == press_count-1) { 
-                        $('.text-caret').addClass('text-caret-animated')
-                    } else {
-                        $('.text-caret').removeClass('text-caret-animated')
-                    }
-                });
-            }
-            setTimeout(check_keys(), 250);
-            press_count++;
-
             if (event.metaKey || event.altKey || event.ctrlKey) return
+
+            setTimeout(testAnimated(++keypressId), 250)
 
             var ch = String.fromCharCode(event.which).toLowerCase()
 
