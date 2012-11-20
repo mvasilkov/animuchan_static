@@ -25,10 +25,18 @@ define(["requestAnimationFrame"], function(requestAnimationFrame) {
         "otransitionend"
     ].join(" ")
 
+    function updateCSS(selector, rule) {
+        var css = document.styleSheets[document.styleSheets.length - 1]
+
+        if (css.addRule) css.addRule(selector, rule)
+        else if (css.insertRule) css.insertRule(selector + "{" + rule + "}", css.cssRules.length)
+    }
+
     return {
         defer: defer,
         normalize: normalize,
         transform: _transform,
-        transitionend: _transitionend
+        transitionend: _transitionend,
+        updateCSS: updateCSS
     }
 })
