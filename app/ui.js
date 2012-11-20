@@ -1,7 +1,7 @@
-define(["conf", "utils", "todo", "game"], function(conf, utils, todo, game) {
+define(["conf", "utils"], function(conf, utils) {
     var _count = $("#count"), _input = $("#input"), _next = $("#next"),
         _score = $("#score"), _todo = $("#todo"), _countFull = _todo.width(),
-        _advanceGame, _started = false, _points = 0
+        _removeMob, _advanceGame, _changeSpeed, _started = false, _points = 0
 
     function resetNext() {
         utils.defer(_next.addClass, _next, "done")
@@ -10,8 +10,14 @@ define(["conf", "utils", "todo", "game"], function(conf, utils, todo, game) {
     }
 
     function init() {
-        _advanceGame = require("todo").advance
+        var game = require("game"), todo = require("todo")
+
+        _removeMob = game.removeMob
+        _advanceGame = todo.advance
+        _changeSpeed = todo.changeSpeed
+
         _next.bind(utils.transitionend, resetNext)
+
         _score.tooltip({ placement: "bottom" })
 
         var body = $("body")
@@ -37,7 +43,9 @@ define(["conf", "utils", "todo", "game"], function(conf, utils, todo, game) {
         if (!remaining) resetNext()
 
         var task = _todo.children(".task[data-text=\"" + text + "\"]").first()
-        game.removeMob(text)
+
+        _removeMob(text) // TODO blast the poor thing
+
         task.removeClass("active").bind(utils.transitionend, function() {
             var replacement = $("<div class=replacement>")
             $(this).replaceWith(replacement)
@@ -61,8 +69,12 @@ define(["conf", "utils", "todo", "game"], function(conf, utils, todo, game) {
     }
 
     function updateScore(n) {
+        var _saved = _points
+
         _score.text(_fmt(_points += n))
-        if (_points % 1000 == 0) todo.changeSpeed()
+
+        if ((0.001 * _points | 0) != (0.001 * _saved | 0))
+            _changeSpeed()
     }
 
     function endGame() {
@@ -73,13 +85,6 @@ define(["conf", "utils", "todo", "game"], function(conf, utils, todo, game) {
         $("#game-over").modal({ backdrop: "static", keyboard: false })
     }
 
-    function changeCSS(selector, rule) {
-        // Get last stylesheet
-        var css = document.styleSheets[(document.styleSheets.length - 1)];
-        if(css.addRule) css.addRule(selector, rule)
-        else if (css.insertRule) css.insertRule(selector + ' { ' + rule + ' }', css.cssRules.length)
-    }
-
     return {
         init: init,
         readline: readline,
@@ -87,7 +92,6 @@ define(["conf", "utils", "todo", "game"], function(conf, utils, todo, game) {
         removeTask: removeTask,
         updateCount: updateCount,
         updateScore: updateScore,
-        endGame: endGame,
-        changeCSS: changeCSS
+        endGame: endGame
     }
 })
