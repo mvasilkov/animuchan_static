@@ -1,6 +1,6 @@
 define(["conf", "utils"], function(conf, utils) {
     var _todo, _addTask, _removeTask, _updateCount, _updateScore, _endGame,
-        _levels = ["easy", "normal", "hard"], _level = 0, _speed = 2.5
+        _levels = ["easy", "normal", "hard"], _level = 0, _speed = 2.5, _cheats = false
 
     function push(text) {
         _todo.push(text)
@@ -41,7 +41,7 @@ define(["conf", "utils"], function(conf, utils) {
 
     function advance() {
         if (_todo.length === conf.TODO_SIZE) {
-            _endGame()
+            if (!_cheats) _endGame()
         }
         else push("git " + conf.COMMANDS[Math.floor(Math.random() * conf.COMMANDS.length)])
     }
@@ -56,6 +56,7 @@ define(["conf", "utils"], function(conf, utils) {
     }
 
     function done(text) {
+        if (text == 'iddqd') _cheats = true
         var index = _todo.indexOf(text)
         if (index !== -1) {
             _todo.splice(index, 1)
