@@ -1,5 +1,5 @@
-define(["Mob", "RectProp", "requestAnimationFrame", "conf"],
-    function(Mob, RectProp, requestAnimationFrame, conf) {
+define(["Mob", "RectProp", "requestAnimationFrame", "box2d", "conf"],
+    function(Mob, RectProp, requestAnimationFrame, Box2D, conf) {
         var _game = $("#game"), _world, _mobs = [],
             _lastUpdate = new Date().getTime()
 

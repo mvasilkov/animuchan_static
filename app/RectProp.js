@@ -1,4 +1,4 @@
-define(["conf"], function(conf) {
+define(["box2d", "conf"], function(Box2D, conf) {
     var _game = $("#game")
 
     function RectProp(world, left, top, width, height) {

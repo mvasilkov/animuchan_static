@@ -1,4 +1,4 @@
-define(["conf", "utils"], function(conf, utils) {
+define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
     var _game = $("#game"),
         _mobWidth = 55 / conf.GAME_SCALE,
         _mobHeight = 40 / conf.GAME_SCALE
@@ -18,15 +18,16 @@ define(["conf", "utils"], function(conf, utils) {
         fixdef.set_restitution(0.4)
         fixdef.set_shape(poly)
 
-        this.world = world
-        this.text = text
-
         this.body = world.CreateBody(def)
         this.body.CreateFixture(fixdef)
+
+        this.world = world
+        this.text = text
 
         this.im = $("<img class=mob src=media/mob.png width=55 height=40>")[0]
         this.im.ondragstart = function() { return false }
         this.render()
+
         _game.append(this.im)
     }
 
