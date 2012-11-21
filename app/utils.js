@@ -25,11 +25,23 @@ define(["requestAnimationFrame"], function(requestAnimationFrame) {
         "otransitionend"
     ].join(" ")
 
-    function updateCSS(selector, rule) {
-        var css = document.styleSheets[document.styleSheets.length - 1]
+    var _css = (function(xs) {
+        for (var i = 0; i < xs.length; ++i) {
+            if (xs[i].title == "main") return xs[i]
+        }
 
-        if (css.addRule) css.addRule(selector, rule)
-        else if (css.insertRule) css.insertRule(selector + "{" + rule + "}", css.cssRules.length)
+        return null
+    })(document.styleSheets)
+
+    function updateCSS(selector, rule) {
+        if (!_css) return
+
+        if (_css.addRule) {
+            _css.addRule(selector, rule)
+        }
+        else if (_css.insertRule) {
+            _css.insertRule(selector + "{" + rule + "}", _css.cssRules.length)
+        }
     }
 
     return {
