@@ -56,7 +56,7 @@ define(["conf", "utils"], function(conf, utils) {
     }
 
     function done(text) {
-        if (text == 'iddqd') _cheats = true
+        if (text === "iddqd") _cheats = true
         var index = _todo.indexOf(text)
         if (index !== -1) {
             _todo.splice(index, 1)
