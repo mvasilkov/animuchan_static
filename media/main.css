@@ -62,6 +62,7 @@ iframe:last-child {
 
 #game, .tooltip, .mob {
     -webkit-backface-visibility: hidden;
+    -webkit-perspective: 900;
     -webkit-transform: translate3d(0,0,0);
 }
 
