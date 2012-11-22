@@ -18,8 +18,6 @@ define(["conf", "utils"], function(conf, utils) {
 
         _next.bind(utils.transitionend, resetNext)
 
-        _score.tooltip({ placement: "bottom" })
-
         var body = $("body")
         utils.defer(body.removeClass, body, "loading")
     }
