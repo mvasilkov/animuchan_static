@@ -6,7 +6,14 @@ def optimize():
     # initialize
     local("ln -s ../lib/almond.js app/almond.js")
     # build html
-    command = 's|data-main="app/main.js" src="lib/require.js"|src="app.js"|'
+    command = ";".join([
+        # fix javascript path
+        's|data-main="app/main.js" src="lib/require.js"|src="app.js"|',
+        # remove leading whitespace
+        's|^ *||',
+        # remove blank lines
+        '/^$/d',
+    ])
     local("sed '%s' < index.html > upload/index.html" % command)
     # build js
     local("r.js -o baseUrl=app name=almond include=main out=upload/app.js wrap=true")
@@ -14,4 +21,5 @@ def optimize():
     local("rm app/almond.js")
 
 def upload():
-    local("rsync -Cavz lib media upload/index.html upload/app.js animuchan:git-invaders")
+    local("rsync -Cavz favicon.ico lib media "
+          "upload/index.html upload/app.js animuchan:git-invaders")
