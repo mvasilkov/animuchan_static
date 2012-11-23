@@ -8,7 +8,8 @@ define(["utils"], function(utils) {
             id: "bgm",
             loops: 9000,
             multiShot: false,
-            url: "media/sound/bgm.mp3"
+            url: "media/sound/bgm.mp3",
+            volume: 90
         })
 
         _blip = soundManager.createSound({
@@ -17,7 +18,7 @@ define(["utils"], function(utils) {
             url: "media/sound/blip.wav"
         })
 
-        _disable.remove()
+        _disable.remove() // TODO animate this
 
         $("#music-on").change(function() {
             _bgm[["stop", "play"][this.checked | 0]]()

@@ -24,14 +24,14 @@ html:-webkit-full-screen {
 
 body {
     background: #fbfbfb;
-    font: 0.8125em/22px source-code-pro, "Monaco", "Lucida Console", monospace;
+    font: 0.8125em/22px source-code-pro, "Monaco", "Consolas", "Lucida Console", monospace;
     margin: 0;
     min-width: 960px;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: #202020;
-    font: 300 18px/24px "Helvetica Neue", "Segoe UI", sans-serif;
+    font: 300 18px/24px "Helvetica Neue", "Segoe UI", "Tahoma", sans-serif;
     margin: 0;
 }
 
