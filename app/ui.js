@@ -34,7 +34,12 @@ define(["conf", "utils"], function(conf, utils) {
 
     function removeTask(text, remaining) {
         if (!_started) {
-            $("#instructions").remove()
+            function _rm() { $(this).remove() }
+
+            $("#instructions").remove() // it's way too animated in the area
+            $("#github").slideUp(_rm)
+            $("#fullscreen").hide(_rm)
+
             _started = true
         }
 
