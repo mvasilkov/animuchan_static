@@ -1,8 +1,11 @@
 ## Building git-invaders
-...depends on Fabric, RequireJS, UglifyJS and ycssmin.
-(I assume Node.js and Python are installed.)
+...involves **Fabric, RequireJS, UglifyJS** and **ycssmin.**
+(I assume **Node.js** and **Python** are installed, too.)
 
+Installation:
 `npm -g i requirejs uglify-js ycssmin`
+and
 `pip install fabric`
+should suffice.
 
-Use `fab optimize` to rebuild (minify) game files.
+Then use `fab optimize` to rebuild (minify) game files.
