@@ -3,14 +3,35 @@ from fabric.api import local
 SED_PROGRAM = ";".join([
     # remove link to bootstrap css
     '/bootstrap.css/d',
+    # remove unused javascript
+    '/box2d-web.js/d',
+    '/jquery-1.8.2.js/d',
+    '/bootstrap.js/d',
     # fix css path
     's|media/main.css|app.css|',
     # fix javascript path
+    's|lib/soundmanager2-nodebug.js|lib.js|',
     's|data-main="app/main.js" src="lib/require.js"|src="app.js"|',
     # remove leading whitespace
     's|^ *||',
     # remove blank lines
     '/^$/d',
+])
+
+UGLIFY_JS_FILES = " ".join([
+    "lib/box2d-web.js",
+    "lib/jquery-1.8.2.js",
+    "lib/bootstrap/bootstrap.js",
+    "lib/soundmanager2-nodebug.js",
+])
+
+RSYNC_FILES = " ".join([
+    "media",
+    "lib/bootstrap/media",
+    "upload/app.{css,js}",
+    "upload/lib.js",
+    "upload/index.html",
+    "favicon.ico",
 ])
 
 def cleanup():
@@ -30,12 +51,10 @@ def optimize():
     local("cat lib/bootstrap/bootstrap.css _css | ycssmin > upload/app.css")
     # build js
     local("r.js -o baseUrl=app name=almond include=main out=upload/app.js wrap=true")
+    local("uglifyjs %s -c -m -o upload/lib.js" % UGLIFY_JS_FILES)
     # clean up
     cleanup()
 
 def upload():
     """Deploy to server."""
-    # lib and media
-    local("rsync -Cavz lib media lib/bootstrap/media animuchan:git-invaders")
-    # minified files
-    local("rsync -Cavz upload/* favicon.ico animuchan:git-invaders")
+    local("rsync -Cavz %s animuchan:git-invaders" % RSYNC_FILES)
