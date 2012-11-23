@@ -283,7 +283,6 @@ iframe:last-child {
         0 3px 5px rgba(0,0,0,.1),
         inset 0 10px rgba(255,255,255,0.25);
     color: #fff;
-    position: absolute;
     z-index: 2;
 }
 
@@ -291,6 +290,7 @@ iframe:last-child {
     -moz-animation: slide 2s ease-in-out infinite alternate;
     -webkit-animation: slide 2s ease-in-out infinite alternate;
     padding: 4px 8px;
+    position: absolute;
     right: 22px;
     top: 64px;
     width: 300px;
@@ -328,7 +328,6 @@ iframe:last-child {
 
 #console {
     margin: 4px 0 0;
-    position: relative;
 }
 
 #console-disable {
@@ -338,6 +337,7 @@ iframe:last-child {
     height: 70px;
     left: -4px;
     line-height: 70px;
+    position: relative;
     text-align: center;
     top: -4px;
     width: 135px;
@@ -428,10 +428,13 @@ iframe:last-child {
 
 #level-select, #level-restart {
     margin: 4px 0 0;
+    position: static;
 }
 
 #level-select .btn, #level-restart .btn {
+    border-color: #404040;
     font-size: 12px;
+    position: static;
     z-index: 2; /* fix Bootstrap issue */
 }
 
