@@ -60,7 +60,7 @@ iframe:last-child {
     -ms-user-select: none;
 }
 
-#game, .mob {
+#game .zone, #meta, .mob, .switch {
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 900;
     -webkit-transform: translate3d(0,0,0);
@@ -177,6 +177,10 @@ iframe:last-child {
     -moz-transition: none;
     -webkit-transition: none;
     -o-transition: none;
+}
+
+#term, #instructions, #github {
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 #term {
