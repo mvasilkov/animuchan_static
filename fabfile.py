@@ -14,6 +14,7 @@ SED_PROGRAM = ";".join([
 ])
 
 def optimize():
+    """Rebuild (minify) game files."""
     # unlink old copy
     local("rm -f app/almond.js")
     # initialize
@@ -28,5 +29,8 @@ def optimize():
     local("rm app/almond.js")
 
 def upload():
-    local("rsync -Cavz favicon.ico lib media "
-          "upload/index.html upload/app.js animuchan:git-invaders")
+    """Deploy to server."""
+    # lib and media
+    local("rsync -Cavz lib media lib/bootstrap/media animuchan:git-invaders")
+    # minified files
+    local("rsync -Cavz upload/* favicon.ico animuchan:git-invaders")
