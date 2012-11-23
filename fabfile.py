@@ -7,6 +7,10 @@ def optimize():
     local("ln -s ../lib/almond.js app/almond.js")
     # build html
     command = ";".join([
+        # remove link to bootstrap css
+        '/bootstrap.css/d',
+        # fix css path
+        's|media/main.css|app.css|',
         # fix javascript path
         's|data-main="app/main.js" src="lib/require.js"|src="app.js"|',
         # remove leading whitespace
