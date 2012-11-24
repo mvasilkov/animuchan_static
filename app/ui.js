@@ -47,7 +47,7 @@ define(["conf", "utils"], function(conf, utils) {
 
         var task = _todo.children(".task[data-text=\"" + text + "\"]").first()
 
-        _removeMob(text) // TODO blast the poor thing
+        _removeMob(text)
 
         task.removeClass("active").bind(utils.transitionend, function() {
             var replacement = $("<div class=replacement>")

@@ -22,8 +22,8 @@ define(["box2d", "conf"], function(Box2D, conf) {
     }
 
     RectProp.prototype.render = function() {
-        if (typeof this.rect === "undefined") {
-            this.rect = $("<div class=rect-prop>")
+        if (typeof this.im === "undefined") {
+            this.im = $("<div class=rect-prop>")
                 /* initialize */
                 .width(this.width * conf.GAME_SCALE)
                 .height(this.height * conf.GAME_SCALE)
@@ -31,7 +31,7 @@ define(["box2d", "conf"], function(Box2D, conf) {
         }
 
         var position = this.body.GetPosition()
-        this.rect.css({
+        this.im.css({
             left: (position.get_x() - this.width / 2) * conf.GAME_SCALE,
             top: (position.get_y() - this.height / 2) * conf.GAME_SCALE
         })
