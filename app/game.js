@@ -1,6 +1,6 @@
-define(["Mob", "RectProp", "requestAnimationFrame", "box2d", "conf"],
-    function(Mob, RectProp, requestAnimationFrame, Box2D, conf) {
-        var _game = $("#game"), _world, _mobs = [],
+define(["Mob", "RectProp", "Frag", "requestAnimationFrame", "box2d", "conf", "invader"],
+    function(Mob, RectProp, Frag, requestAnimationFrame, Box2D, conf, invader) {
+        var _game = $("#game"), _world, _mobs = [], _frags = [],
             _lastUpdate = new Date().getTime()
 
         function render() {
@@ -13,6 +13,10 @@ define(["Mob", "RectProp", "requestAnimationFrame", "box2d", "conf"],
 
             for (var i = 0; i < _mobs.length; ++i) {
                 _mobs[i].render()
+            }
+
+            for (var j = 0; j < _frags.length; ++j) {
+                _frags[j].render()
             }
         }
 
@@ -58,9 +62,28 @@ define(["Mob", "RectProp", "requestAnimationFrame", "box2d", "conf"],
             }
         }
 
+        function addFrags(pos, angle, velocity) {
+            var x0 = pos.get_x(),
+                y0 = pos.get_y(),
+                c = Math.cos(angle),
+                s = Math.sin(angle)
+
+            function _rot(x, y) {
+                return new Box2D.b2Vec2(x0 + c * x - s * y,
+                                        y0 + c * y + s * x)
+            }
+
+            for (var i = 0; i < invader.n; ++i) {
+                var position = _rot(invader.xs[i], invader.ys[i])
+
+                _frags.push(new Frag(_world, position, angle, velocity))
+            }
+        }
+
         return {
             init: init,
             addMob: addMob,
-            removeMob: removeMob
+            removeMob: removeMob,
+            addFrags: addFrags
         }
     })

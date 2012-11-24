@@ -60,7 +60,7 @@ iframe:last-child {
     -ms-user-select: none;
 }
 
-#game .zone, #meta, .mob, .switch {
+#game .zone, #meta, .mob, .frag, .switch {
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 900;
     -webkit-transform: translate3d(0,0,0);
@@ -497,4 +497,11 @@ iframe:last-child {
     height: 48px;
     position: absolute;
     width: 66px;
+}
+
+.frag {
+    background: #ff0080;
+    height: 6px;
+    position: absolute;
+    width: 6px;
 }

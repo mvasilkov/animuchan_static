@@ -1,5 +1,5 @@
 define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
-    var _game = $("#game"),
+    var _game = $("#game"), _addFrags,
         _mobWidth = 66 / conf.GAME_SCALE,
         _mobHeight = 48 / conf.GAME_SCALE
 
@@ -39,8 +39,17 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
         this.im.style[utils.transform] = "rotate(" + this.body.GetAngle() + "rad)"
     }
 
+    Mob.prototype.blast = function() {
+        if (typeof _addFrags == "undefined") {
+            _addFrags = require("game").addFrags
+        }
+
+        _addFrags(this.body.GetPosition(), this.body.GetAngle(), this.body.GetLinearVelocity())
+    }
+
     Mob.prototype.remove = function() {
         $(this.im).remove()
+        this.blast()
         this.world.DestroyBody(this.body)
     }
 
