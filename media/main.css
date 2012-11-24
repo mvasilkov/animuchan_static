@@ -127,8 +127,9 @@ iframe:last-child {
             rgba(255,255,255,0.25) 50%,
             rgba(255,255,255,0) 50%);
     height: 49px;
+    line-height: 48px;
     margin: 0 0 1px;
-    padding: 4px 8px;
+    padding: 4px 16px;
     -moz-transform: scale(0.01);
     -webkit-transform: scale(0.01);
     -o-transform: scale(0.01);
