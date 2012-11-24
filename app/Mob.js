@@ -1,7 +1,7 @@
 define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
     var _game = $("#game"),
-        _mobWidth = 55 / conf.GAME_SCALE,
-        _mobHeight = 40 / conf.GAME_SCALE
+        _mobWidth = 66 / conf.GAME_SCALE,
+        _mobHeight = 48 / conf.GAME_SCALE
 
     function Mob(world, left, top, text) {
         var def = new Box2D.b2BodyDef()
@@ -24,7 +24,7 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
         this.world = world
         this.text = text
 
-        this.im = $("<img class=mob src=media/mob.png width=55 height=40>")[0]
+        this.im = $("<img class=mob src=media/mob.png width=66 height=48>")[0]
         this.im.ondragstart = function() { return false }
         this.render()
 

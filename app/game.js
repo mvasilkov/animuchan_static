@@ -40,8 +40,8 @@ define(["Mob", "RectProp", "requestAnimationFrame", "box2d", "conf"],
         }
 
         function addMob(text) {
-            var x = (7 + 55 / 2) / conf.GAME_SCALE,
-                y = (7 + 40 / 2) / conf.GAME_SCALE
+            var x = (7 + 66 / 2) / conf.GAME_SCALE,
+                y = (7 + 48 / 2) / conf.GAME_SCALE
 
             x += Math.random() * (_world.real_width - x - x)
 

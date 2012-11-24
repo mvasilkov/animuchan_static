@@ -228,30 +228,35 @@ iframe:last-child {
     white-space: pre;
 }
 
+#warp.zone {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
 #warp {
     background: #f9f9f9 url("warp_bg.png");
     border: 1px solid #404040;
-    height: 44px;
+    height: 48px;
     left: 5px;
     padding: 1px;
     top: 5px;
-    width: 59px;
+    width: 66px;
 }
 
 #warp::after {
     background-image: url("warp.png");
     border: 1px solid #f9f9f9;
     content: "";
-    height: 40px;
+    height: 48px;
     left: 0;
     position: absolute;
     top: 0;
-    width: 55px;
+    width: 66px;
 }
 
 #next {
     background: #404040;
-    height: 40px;
+    height: 48px;
     width: 0;
 }
 
@@ -259,13 +264,13 @@ iframe:last-child {
     -moz-transition: width 2.5s linear;
     -webkit-transition: width 2.5s linear;
     -o-transition: width 2.5s linear;
-    width: 55px;
+    width: 66px;
 }
 
 #meta {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    left: 69px;
+    left: 80px;
     padding: 2px 4px;
     position: absolute;
     top: 5px;
@@ -273,7 +278,7 @@ iframe:last-child {
 
 #score {
     line-height: 30px;
-    padding: 5px 25px;
+    padding: 9px 25px;
 }
 
 #instructions, #console-disable {
@@ -489,7 +494,7 @@ iframe:last-child {
 .mob {
     display: block;
     -webkit-user-drag: none;
-    height: 40px;
+    height: 48px;
     position: absolute;
-    width: 55px;
+    width: 66px;
 }
