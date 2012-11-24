@@ -56,13 +56,22 @@ define(["conf", "utils"], function(conf, utils) {
     }
 
     function done(text) {
-        if (text === "iddqd") _cheats = true
         var index = _todo.indexOf(text)
+
         if (index !== -1) {
             _todo.splice(index, 1)
             _removeTask(text, _todo.length)
             _updateCount(_todo.length)
             _updateScore(100 + _level * 100)
+        }
+
+        if (text === "iddqd") {
+            _cheats = true
+            $("#game").css({
+                backgroundImage: "url(media/baka.png)",
+                backgroundPosition: "2px 200px",
+                backgroundRepeat: "no-repeat"
+            })
         }
     }
 
