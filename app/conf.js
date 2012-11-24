@@ -3,6 +3,7 @@ define({
     BACKSPACE: 0x08,
     RETURN: 0x0d,
     FRAG_SIZE: 6,
+    FRAG_TTL: 30,
     GAME_SCALE: 20,
     PRINTABLE: "abcdefghijklmnopqrstuvwxyz0123456789 -",
     BUFFER_SIZE: 40,

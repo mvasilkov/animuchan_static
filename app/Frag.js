@@ -3,7 +3,7 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
         _fragWidth = conf.FRAG_SIZE / conf.GAME_SCALE,
         _fragHeight = conf.FRAG_SIZE / conf.GAME_SCALE
 
-    function Frag(world, position, angle, velocity, blast) {
+    function Frag(world, position, angle, velocity, blast, ttl) {
         var def = new Box2D.b2BodyDef()
         def.set_type(Box2D.b2_dynamicBody)
         def.set_position(position)
@@ -24,6 +24,7 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
         this.body.ApplyImpulse(blast, position)
 
         this.world = world
+        this.ttl = ttl
 
         this.im = $("<div class=frag>")[0]
         this.render()

@@ -1,7 +1,8 @@
 define(["Mob", "RectProp", "Frag", "requestAnimationFrame", "box2d", "conf", "invader"],
     function(Mob, RectProp, Frag, requestAnimationFrame, Box2D, conf, invader) {
         var _game = $("#game"), _world, _mobs = [], _frags = [],
-            _lastUpdate = new Date().getTime()
+            /* "The suggested iteration count is 8 for velocity and 3 for position." */
+            _velocityIter = 8, _positionIter = 3, _lastUpdate = new Date().getTime()
 
         function render() {
             requestAnimationFrame(render)
@@ -9,14 +10,21 @@ define(["Mob", "RectProp", "Frag", "requestAnimationFrame", "box2d", "conf", "in
             var now = new Date().getTime(), upd = 0.01 * (now - _lastUpdate)
             _lastUpdate = now
 
-            _world.Step(upd, 10, 8)
+            _world.Step(upd, _velocityIter, _positionIter)
 
             for (var i = 0; i < _mobs.length; ++i) {
                 _mobs[i].render()
             }
 
             for (var j = 0; j < _frags.length; ++j) {
-                _frags[j].render()
+                if (_frags[j].ttl > 0) {
+                    _frags[j].ttl -= upd
+                    _frags[j].render()
+                }
+                else {
+                    _frags[j].remove()
+                    _frags.splice(j, 1)
+                }
             }
         }
 
@@ -77,7 +85,8 @@ define(["Mob", "RectProp", "Frag", "requestAnimationFrame", "box2d", "conf", "in
                 var position = _rot(invader.xs[i], invader.ys[i]),
                     blast = Box2D.b2Math.SubtractVV(pos, position) // implosion
 
-                _frags.push(new Frag(_world, position, angle, velocity, blast))
+                _frags.push(new Frag(_world, position, angle, velocity, blast,
+                    conf.FRAG_TTL + i * 0.25))
             }
         }
 
