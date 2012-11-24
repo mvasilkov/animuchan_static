@@ -261,9 +261,9 @@ iframe:last-child {
 }
 
 #next.done {
-    -moz-transition: width 2.5s linear;
-    -webkit-transition: width 2.5s linear;
-    -o-transition: width 2.5s linear;
+    -moz-transition: width 3s linear;
+    -webkit-transition: width 3s linear;
+    -o-transition: width 3s linear;
     width: 66px;
 }
 

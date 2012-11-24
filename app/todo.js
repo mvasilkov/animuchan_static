@@ -1,6 +1,6 @@
 define(["conf", "utils"], function(conf, utils) {
     var _todo, _addTask, _removeTask, _updateCount, _updateScore, _endGame,
-        _levels = ["easy", "normal", "hard"], _level = 0, _speed = 2.5, _cheats = false
+        _levels = ["easy", "norm", "hard"], _level = 0, _speed = 3, _cheats = false
 
     function push(text) {
         _todo.push(text)
@@ -11,9 +11,9 @@ define(["conf", "utils"], function(conf, utils) {
     }
 
     function _set_level() {
-        var opt = location.search.substr(1)
+        var opt = location.search.substr(1, 4)
 
-        if (opt == "normal") _level = 1
+        if (opt == "norm") _level = 1
         else if (opt == "hard") _level = 2
 
         changeSpeed()
