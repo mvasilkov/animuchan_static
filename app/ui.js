@@ -18,6 +18,12 @@ define(["conf", "utils"], function(conf, utils) {
 
         _next.bind(utils.transitionend, resetNext)
 
+        /* preload images */
+        for (var i = 0; i < conf.MOB_FLAVORS; ++i) {
+            var foo = new Image
+            foo.src = "media/mob" + i + ".png"
+        }
+
         var body = $("body")
         utils.defer(body.removeClass, body, "loading")
     }
