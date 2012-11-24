@@ -3,7 +3,7 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
         _fragWidth = conf.FRAG_SIZE / conf.GAME_SCALE,
         _fragHeight = conf.FRAG_SIZE / conf.GAME_SCALE
 
-    function Frag(world, position, angle, velocity, blast, ttl) {
+    function Frag(world, position, angle, velocity, blast, ttl, flavor) {
         var def = new Box2D.b2BodyDef()
         def.set_type(Box2D.b2_dynamicBody)
         def.set_position(position)
@@ -27,6 +27,7 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
         this.ttl = ttl
 
         this.im = $("<div class=frag>")[0]
+        this.im.className += " mob" + flavor
         this.render()
 
         _game.append(this.im)

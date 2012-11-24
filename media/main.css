@@ -500,8 +500,19 @@ iframe:last-child {
 }
 
 .frag {
-    background: #0080ff;
     height: 6px;
     position: absolute;
     width: 6px;
+}
+
+.mob0 {
+    background-color: #0080ff;
+}
+
+.mob1 {
+    background-color: #8000ff;
+}
+
+.mob2 {
+    background-color: #ff0080;
 }

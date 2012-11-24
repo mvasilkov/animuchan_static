@@ -24,8 +24,9 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
 
         this.world = world
         this.text = text
+        this.flavor = Math.floor(Math.random() * conf.MOB_FLAVORS)
 
-        this.im = $("<img class=mob src=media/mob.png width=66 height=48>")[0]
+        this.im = $("<img class=mob src=media/mob" + this.flavor + ".png width=66 height=48>")[0]
         this.im.ondragstart = function() { return false }
         this.render()
 
@@ -45,7 +46,7 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
             _addFrags = require("game").addFrags
         }
 
-        _addFrags(this.body.GetPosition(), this.body.GetAngle(), this.body.GetLinearVelocity())
+        _addFrags(this.body.GetPosition(), this.body.GetAngle(), this.body.GetLinearVelocity(), this.flavor)
     }
 
     Mob.prototype.remove = function() {

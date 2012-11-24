@@ -70,7 +70,7 @@ define(["Mob", "RectProp", "Frag", "requestAnimationFrame", "box2d", "conf", "in
             }
         }
 
-        function addFrags(pos, angle, velocity) {
+        function addFrags(pos, angle, velocity, flavor) {
             var x0 = pos.get_x(),
                 y0 = pos.get_y(),
                 c = Math.cos(angle),
@@ -86,7 +86,7 @@ define(["Mob", "RectProp", "Frag", "requestAnimationFrame", "box2d", "conf", "in
                     blast = Box2D.b2Math.SubtractVV(pos, position) // implosion
 
                 _frags.push(new Frag(_world, position, angle, velocity, blast,
-                    conf.FRAG_TTL + i * 0.25))
+                    conf.FRAG_TTL + i * 0.25, flavor))
             }
         }
 
