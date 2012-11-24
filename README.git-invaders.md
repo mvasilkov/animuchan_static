@@ -1,3 +1,7 @@
+**Click [here][1], [here][1] or [here][1] to play. Or [here][1].**
+
+[1]: http://animuchan.net/git-invaders/
+
 ## Building git-invaders
 ...involves **Fabric, RequireJS, UglifyJS** and **ycssmin.**
 (I assume **Node.js** and **Python** are installed, too.)
