@@ -11,7 +11,7 @@ define(["box2d", "conf"], function(Box2D, conf) {
         poly.SetAsBox(width / 2, height / 2)
 
         var fixdef = new Box2D.b2FixtureDef()
-        fixdef.set_restitution(0.4)
+        fixdef.set_restitution(0.5)
         fixdef.set_shape(poly)
 
         this.body = world.CreateBody(def)

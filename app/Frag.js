@@ -15,7 +15,7 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
         var fixdef = new Box2D.b2FixtureDef()
         fixdef.set_density(2.5)
         fixdef.set_friction(0.3)
-        fixdef.set_restitution(0.4)
+        fixdef.set_restitution(0.5)
         fixdef.set_shape(poly)
 
         this.body = world.CreateBody(def)

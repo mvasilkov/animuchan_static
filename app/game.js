@@ -44,7 +44,7 @@ define(["Mob", "RectProp", "Frag", "requestAnimationFrame", "box2d", "conf", "in
             props.push(new RectProp(_world, 0, real_height / 2, 1, real_height - 1))
             props.push(new RectProp(_world, real_width, real_height / 2, 1, real_height - 1))
 
-            for (var i = 0; i < props.length; ++i) {
+            if (0) for (var i = 0; i < props.length; ++i) {
                 props[i].render()
             }
 
