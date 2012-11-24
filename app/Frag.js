@@ -3,7 +3,7 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
         _fragWidth = conf.FRAG_SIZE / conf.GAME_SCALE,
         _fragHeight = conf.FRAG_SIZE / conf.GAME_SCALE
 
-    function Frag(world, position, angle, velocity) {
+    function Frag(world, position, angle, velocity, blast) {
         var def = new Box2D.b2BodyDef()
         def.set_type(Box2D.b2_dynamicBody)
         def.set_position(position)
@@ -13,7 +13,7 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
         poly.SetAsBox(_fragWidth / 2, _fragHeight / 2)
 
         var fixdef = new Box2D.b2FixtureDef()
-        fixdef.set_density(1)
+        fixdef.set_density(2.5)
         fixdef.set_friction(0.3)
         fixdef.set_restitution(0.4)
         fixdef.set_shape(poly)
@@ -21,6 +21,7 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
         this.body = world.CreateBody(def)
         this.body.CreateFixture(fixdef)
         this.body.SetLinearVelocity(velocity)
+        this.body.ApplyImpulse(blast, position)
 
         this.world = world
 

@@ -74,9 +74,10 @@ define(["Mob", "RectProp", "Frag", "requestAnimationFrame", "box2d", "conf", "in
             }
 
             for (var i = 0; i < invader.n; ++i) {
-                var position = _rot(invader.xs[i], invader.ys[i])
+                var position = _rot(invader.xs[i], invader.ys[i]),
+                    blast = Box2D.b2Math.SubtractVV(pos, position) // implosion
 
-                _frags.push(new Frag(_world, position, angle, velocity))
+                _frags.push(new Frag(_world, position, angle, velocity, blast))
             }
         }
 
