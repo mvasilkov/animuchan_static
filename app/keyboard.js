@@ -51,7 +51,7 @@ define(["conf", "utils"], function(conf, utils) {
 
                 if (event.preventDefault) event.preventDefault()
             }
-            else blip()
+            else if (event.which !== conf.BACKSPACE) blip()
         })
     }
 
