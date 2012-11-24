@@ -4,6 +4,8 @@ if (!Array.prototype.indexOf) {
     throw new Error(err)
 }
 
+window.console || (console = { log: function() {} })
+
 require(["fullscreen", "game", "keyboard", "music", "todo", "ui"],
     function() {
         for (var i = 0; i < arguments.length; ++i) {
