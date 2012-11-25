@@ -1,5 +1,6 @@
 define(["utils"], function(utils) {
-    var _bgm, _blast, _blip, _warp, _disable = $("#console-disable"),
+    var _bgm, _blast, _blip, _game_over, _warp,
+        _disable = $("#console-disable"),
         _sound_on = $("#sound-on").is(":checked")
 
     function ready() {
@@ -22,6 +23,13 @@ define(["utils"], function(utils) {
             autoLoad: true,
             id: "blip",
             url: "media/sound/blip.wav"
+        })
+
+        _game_over = soundManager.createSound({
+            autoLoad: true,
+            id: "game_over",
+            multiShot: false,
+            url: "media/sound/game_over.wav"
         })
 
         _warp = soundManager.createSound({
@@ -60,6 +68,10 @@ define(["utils"], function(utils) {
         if (_sound_on && _blip) _blip.play()
     }
 
+    function game_over() {
+        if (_sound_on && _game_over) _game_over.play()
+    }
+
     function warp() {
         if (_sound_on && _warp) _warp.play()
     }
@@ -68,6 +80,7 @@ define(["utils"], function(utils) {
         init: init,
         blast: blast,
         blip: blip,
+        game_over: game_over,
         warp: warp
     }
 })

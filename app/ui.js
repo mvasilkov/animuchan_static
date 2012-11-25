@@ -92,6 +92,8 @@ define(["conf", "utils"], function(conf, utils) {
         $(document.documentElement).unbind("keypress")
         $("#high-score").text(_fmt(_points))
         $("#game-over").modal({ backdrop: "static", keyboard: false })
+
+        require("music").game_over()
     }
 
     return {
