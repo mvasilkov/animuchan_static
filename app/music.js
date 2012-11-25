@@ -1,5 +1,5 @@
 define(["utils"], function(utils) {
-    var _bgm, _blip, _disable = $("#console-disable"),
+    var _bgm, _blast, _blip, _disable = $("#console-disable"),
         _sound_on = $("#sound-on").is(":checked")
 
     function ready() {
@@ -10,6 +10,12 @@ define(["utils"], function(utils) {
             multiShot: false,
             url: "media/sound/bgm.mp3",
             volume: 90
+        })
+
+        _blast = soundManager.createSound({
+            autoLoad: true,
+            id: "blast",
+            url: "media/sound/blast.wav"
         })
 
         _blip = soundManager.createSound({
@@ -39,12 +45,17 @@ define(["utils"], function(utils) {
         })
     }
 
+    function blast() {
+        if (_sound_on && _blast) _blast.play()
+    }
+
     function blip() {
         if (_sound_on && _blip) _blip.play()
     }
 
     return {
         init: init,
+        blast: blast,
         blip: blip
     }
 })

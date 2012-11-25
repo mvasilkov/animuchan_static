@@ -1,5 +1,5 @@
 define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
-    var _game = $("#game"), _addFrags,
+    var _game = $("#game"), _addFrags, _blast,
         _mobWidth = 66 / conf.GAME_SCALE,
         _mobHeight = 48 / conf.GAME_SCALE
 
@@ -44,9 +44,11 @@ define(["box2d", "conf", "utils"], function(Box2D, conf, utils) {
     Mob.prototype.blast = function() {
         if (typeof _addFrags == "undefined") {
             _addFrags = require("game").addFrags
+            _blast = require("music").blast
         }
 
         _addFrags(this.body.GetPosition(), this.body.GetAngle(), this.body.GetLinearVelocity(), this.flavor)
+        _blast()
     }
 
     Mob.prototype.remove = function() {
