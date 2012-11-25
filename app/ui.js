@@ -38,14 +38,17 @@ define(["conf", "utils"], function(conf, utils) {
         utils.defer(task.addClass, task, "active")
     }
 
+    function removeSecondaryUI() {
+        function _rm() { $(this).remove() }
+
+        $("#instructions").remove() // it's way too animated in the area
+        $("#github").slideUp(_rm)
+        $("#fullscreen, #social-buttons").hide(_rm)
+    }
+
     function removeTask(text, remaining) {
         if (!_started) {
-            function _rm() { $(this).remove() }
-
-            $("#instructions").remove() // it's way too animated in the area
-            $("#github").slideUp(_rm)
-            $("#fullscreen").hide(_rm)
-
+            setTimeout(removeSecondaryUI, 0)
             _started = true
         }
 
