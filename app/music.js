@@ -35,7 +35,8 @@ define(["utils"], function(utils) {
         _warp = soundManager.createSound({
             autoLoad: true,
             id: "warp",
-            url: "media/sound/warp.wav"
+            url: "media/sound/warp.wav",
+            volume: 90
         })
 
         _disable.remove() // TODO animate this
