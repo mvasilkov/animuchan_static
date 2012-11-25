@@ -1,5 +1,5 @@
 define(["utils"], function(utils) {
-    var _bgm, _blast, _blip, _disable = $("#console-disable"),
+    var _bgm, _blast, _blip, _warp, _disable = $("#console-disable"),
         _sound_on = $("#sound-on").is(":checked")
 
     function ready() {
@@ -24,6 +24,12 @@ define(["utils"], function(utils) {
             url: "media/sound/blip.wav"
         })
 
+        _warp = soundManager.createSound({
+            autoLoad: true,
+            id: "warp",
+            url: "media/sound/warp.wav"
+        })
+
         _disable.remove() // TODO animate this
 
         $("#music-on").change(function() {
@@ -41,6 +47,7 @@ define(["utils"], function(utils) {
             flashLoadTimeout: 9000,
             flashVersion: 9,
             onready: ready,
+            preferFlash: false,
             url: "media/sound/"
         })
     }
@@ -53,9 +60,14 @@ define(["utils"], function(utils) {
         if (_sound_on && _blip) _blip.play()
     }
 
+    function warp() {
+        if (_sound_on && _warp) _warp.play()
+    }
+
     return {
         init: init,
         blast: blast,
-        blip: blip
+        blip: blip,
+        warp: warp
     }
 })

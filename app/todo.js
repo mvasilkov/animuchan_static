@@ -1,5 +1,5 @@
 define(["conf", "utils"], function(conf, utils) {
-    var _todo, _addTask, _removeTask, _updateCount, _updateScore, _endGame,
+    var _todo, _addTask, _removeTask, _updateCount, _updateScore, _endGame, _warp,
         _levels = ["easy", "norm", "hard"], _level = 0, _speed = 3, _cheats = false
 
     function push(text) {
@@ -8,6 +8,7 @@ define(["conf", "utils"], function(conf, utils) {
         _addMob(text)
         _addTask(text)
         _updateCount(_todo.length)
+        _warp()
     }
 
     function _set_level() {
@@ -23,7 +24,7 @@ define(["conf", "utils"], function(conf, utils) {
     }
 
     function init() {
-        var game = require("game"), ui = require("ui")
+        var game = require("game"), ui = require("ui"), music = require("music")
 
         _todo = []
 
@@ -33,6 +34,7 @@ define(["conf", "utils"], function(conf, utils) {
         _updateCount = ui.updateCount
         _updateScore = ui.updateScore
         _endGame = ui.endGame
+        _warp = music.warp
 
         _set_level()
 
