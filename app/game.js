@@ -57,7 +57,9 @@ define(["Mob", "RectProp", "Frag", "requestAnimationFrame", "box2d", "conf", "in
 
             x += Math.random() * (_world.real_width - x - x)
 
-            _mobs.push(new Mob(_world, x, y, text))
+            var mob = new Mob(_world, x, y, text)
+            _mobs.push(mob)
+            return mob.flavor
         }
 
         function removeMob(text) {

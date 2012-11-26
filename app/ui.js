@@ -32,8 +32,9 @@ define(["conf", "utils"], function(conf, utils) {
         _input.text(text)
     }
 
-    function addTask(text) {
-        var task = $("<div class=task>").attr("data-text", text).text(text)
+    function addTask(text, flavor) {
+        var task = $("<div class=task>").attr("data-text", text).text(text),
+            icon = $("<img src=media/mob" + flavor + ".png width=33 height=24>").appendTo(task)
         _todo.append(task)
         utils.defer(task.addClass, task, "active")
     }

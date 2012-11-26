@@ -50,10 +50,6 @@ iframe {
     margin: 0 0 9px;
 }
 
-iframe:nth-child(4) {
-    margin: 0;
-}
-
 img {
     display: block;
 }
@@ -134,6 +130,7 @@ img {
     line-height: 48px;
     margin: 0 0 1px;
     padding: 4px 16px;
+    position: relative;
     -moz-transform: scale(0.01);
     -webkit-transform: scale(0.01);
     -o-transform: scale(0.01);
@@ -150,6 +147,12 @@ img {
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -o-transform: scale(1);
+}
+
+.task img {
+    position: absolute;
+    right: 16px;
+    top: 16px;
 }
 
 .replacement {
@@ -331,6 +334,10 @@ img {
         -o-transform: translate(-75px, 50px) rotate(-50grad);
         -o-transform-origin: 125px 0;
     }
+}
+
+#social-buttons {
+    padding-bottom: 0;
 }
 
 #console {

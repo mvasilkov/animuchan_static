@@ -5,8 +5,8 @@ define(["conf", "utils"], function(conf, utils) {
     function push(text) {
         _todo.push(text)
 
-        _addMob(text)
-        _addTask(text)
+        var flavor = _addMob(text)
+        _addTask(text, flavor)
         _updateCount(_todo.length)
         _warp()
     }
