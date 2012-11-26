@@ -54,6 +54,10 @@ iframe:nth-child(4) {
     margin: 0;
 }
 
+img {
+    display: block;
+}
+
 .btn, .switch {
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -180,7 +184,7 @@ iframe:nth-child(4) {
     -o-transition: none;
 }
 
-#term, #instructions, #github {
+#term, #github {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -283,7 +287,7 @@ iframe:nth-child(4) {
 }
 
 #instructions, #console-disable {
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0,0,0,0.9);
     border: 1px solid #f9f9f9;
     box-shadow:
         0 1px rgb(225,225,225),
@@ -299,17 +303,10 @@ iframe:nth-child(4) {
 #instructions {
     -moz-animation: slide 2s ease-in-out infinite alternate;
     -webkit-animation: slide 2s ease-in-out infinite alternate;
-    padding: 4px 8px;
+    padding: 20px;
     position: absolute;
     right: 22px;
     top: 64px;
-    width: 300px;
-}
-
-#instructions i {
-    font-size: 20px;
-    line-height: 22px;
-    vertical-align: middle;
 }
 
 #github {
