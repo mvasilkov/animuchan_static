@@ -2,11 +2,37 @@
 
 [1]: http://animuchan.net/git-invaders/
 
-## Building git-invaders
+# Git Invaders
+
+## Compatibility
+
+<table>
+  <tr>
+		<td><strong>Near-ideal:</strong></td>
+		<td>Google Chrome</td>
+	</tr>
+	<tr>
+		<td><strong>Works:</strong></td>
+		<td>Safari, Firefox, Opera, Chromium</td>
+	</tr>
+	<tr>
+		<td><strong>Broken:</strong></td>
+		<td>MSIE version 10</td>
+	</tr>
+	<tr>
+		<td><strong>FFFFUUUU:</strong></td>
+		<td>MSIE before version 10</td>
+	</tr>
+</table>
+
+CSS3 support is required.
+Only the recent browser versions are supported.
+
+## Building from source
 ...involves **Fabric, RequireJS, UglifyJS** and **ycssmin.**
 (I assume **Node.js** and **Python** are installed, too.)
 
-Installation:
+Requirements:
 `npm -g i requirejs uglify-js ycssmin`
 and
 `pip install fabric`
