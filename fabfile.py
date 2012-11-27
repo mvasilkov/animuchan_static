@@ -27,7 +27,6 @@ UGLIFY_JS_FILES = " ".join([
 
 RSYNC_FILES = " ".join([
     "media",
-    "lib/bootstrap/media",
     "upload/app.{css,js}",
     "upload/lib.js",
     "upload/index.html",

@@ -10,7 +10,7 @@ sed -i= /sprites.less/d bootstrap/less/bootstrap.less
 (cd bootstrap && make bootstrap)
 
 cd ..
-mkdir -p lib/bootstrap/media
+mkdir -p lib/bootstrap
 mv _rebuild/bootstrap/bootstrap/css/bootstrap{-responsive,}.css lib/bootstrap
 mv _rebuild/bootstrap/bootstrap/js/bootstrap.js lib/bootstrap
 
