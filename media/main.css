@@ -56,7 +56,7 @@ iframe {
     -ms-user-select: none;
 }
 
-#game .zone, #meta, .mob, .frag, .switch {
+#game .zone, #meta, .mob, .frag, .switch, #social-buttons {
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 900;
     -webkit-transform: translate3d(0,0,0);
@@ -187,7 +187,7 @@ iframe {
     -o-transition: none;
 }
 
-#term, #github {
+#term, #github, #social-buttons {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -340,7 +340,17 @@ iframe {
 }
 
 #social-buttons {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 69px;
     padding-bottom: 0;
+    position: relative;
+}
+
+#social-buttons img {
+    position: absolute;
+    right: 1px;
+    top: 1px;
 }
 
 #console {
