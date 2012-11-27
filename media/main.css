@@ -50,10 +50,6 @@ iframe {
     margin: 0 0 9px;
 }
 
-img {
-    display: block;
-}
-
 .btn, .switch {
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -88,6 +84,10 @@ img {
     -ms-user-select: none;
     -webkit-user-select: none;
     width: 960px;
+}
+
+#game img {
+    display: block;
 }
 
 #game .zone {
@@ -304,12 +304,15 @@ img {
 }
 
 #instructions {
-    -moz-animation: slide 2s ease-in-out infinite alternate;
-    -webkit-animation: slide 2s ease-in-out infinite alternate;
     padding: 20px;
     position: absolute;
     right: 22px;
     top: 64px;
+}
+
+#instructions:hover {
+    -moz-animation: slide 2s ease-in-out infinite alternate;
+    -webkit-animation: slide 2s ease-in-out infinite alternate;
 }
 
 #github {

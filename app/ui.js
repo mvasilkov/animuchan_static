@@ -44,7 +44,7 @@ define(["conf", "utils"], function(conf, utils) {
 
         $("#instructions").remove() // it's way too animated in the area
         $("#github").slideUp(_rm)
-        $("#fullscreen, #social-buttons").hide(_rm)
+        $("#fullscreen").hide(_rm)
     }
 
     function removeTask(text, remaining) {
