@@ -7,7 +7,7 @@
 ## Compatibility
 
 <table>
-  <tr>
+	<tr>
 		<td><strong>Near-ideal:</strong></td>
 		<td>Google Chrome</td>
 	</tr>
@@ -29,6 +29,7 @@ CSS3 support is required.
 Only the recent browser versions are supported.
 
 ## Building from source
+
 ...involves **Fabric, RequireJS, UglifyJS** and **ycssmin.**
 (I assume **Node.js** and **Python** are installed, too.)
 
@@ -39,3 +40,9 @@ and
 should suffice.
 
 Then use `fab optimize` to rebuild (minify) game files.
+
+## License
+
+[MIT][2].
+
+[2]: https://raw.github.com/mvasilkov/game-off-2012/master/MIT-LICENSE.txt
