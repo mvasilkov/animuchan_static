@@ -1,11 +1,13 @@
 define(["utils"], function(utils) {
     var _bgm, _blast, _blip, _game_over, _warp,
         _disable = $("#console-disable"),
+        _music_on = $("#music-on").is(":checked"),
         _sound_on = $("#sound-on").is(":checked")
 
     function ready() {
         _bgm = soundManager.createSound({
             autoLoad: true,
+            autoPlay: _music_on,
             id: "bgm",
             loops: 9000,
             multiShot: false,
