@@ -547,3 +547,12 @@ iframe {
 .mob2 {
     background-color: #ff0080;
 }
+
+.protip {
+    margin: 9px 0 0;
+}
+
+.protip em {
+    color: #8000ff;
+    font-style: normal;
+}
