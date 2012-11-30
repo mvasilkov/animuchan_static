@@ -18,6 +18,8 @@ SED_PROGRAM = ";".join([
     '/^$/d',
 ])
 
+SED_MUSIC_ON = 's|autocomplete="off">|autocomplete="off" checked>|'
+
 UGLIFY_JS_FILES = " ".join([
     "lib/box2d-web.js",
     "lib/jquery-1.8.2.js",
@@ -30,6 +32,7 @@ RSYNC_FILES = " ".join([
     "upload/app.{css,js}",
     "upload/lib.js",
     "upload/index.html",
+    "upload/music-on",
     "favicon.ico",
 ])
 
@@ -51,6 +54,8 @@ def optimize():
     # build js
     local("r.js -o baseUrl=app name=almond include=main out=upload/app.js wrap=true")
     local("uglifyjs %s -c -m -o upload/lib.js" % UGLIFY_JS_FILES)
+    # build music-on
+    local("sed '%s' < upload/index.html > upload/music-on/index.html" % SED_MUSIC_ON)
     # clean up
     cleanup()
 
