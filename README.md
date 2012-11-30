@@ -5,6 +5,12 @@
 
 # Git Invaders
 
+Programmed by [Mark Vasilkov][3].
+See [End credits][4] for contributors and third parties.
+
+[3]: http://careers.stackoverflow.com/mvasilkov
+[4]: https://github.com/mvasilkov/game-off-2012/wiki/End-credits
+
 ## Compatibility
 
 <table>
@@ -44,6 +50,6 @@ Then use `fab optimize` to rebuild (minify) game files.
 
 ## License
 
-[MIT][3].
+[MIT][5].
 
-[3]: https://raw.github.com/mvasilkov/game-off-2012/master/MIT-LICENSE.txt
+[5]: https://raw.github.com/mvasilkov/game-off-2012/master/MIT-LICENSE.txt
