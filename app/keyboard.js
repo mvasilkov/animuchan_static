@@ -36,7 +36,7 @@ define(["conf", "utils"], function(conf, utils) {
             var ch = String.fromCharCode(event.which).toLowerCase()
 
             if (event.which === conf.RETURN) {
-                keyboardUpdate("")
+                keyboardUpdate("", _buffer)
                 keyboardReturn(utils.normalize(_buffer))
                 _buffer = ""
 

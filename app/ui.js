@@ -1,5 +1,5 @@
 define(["conf", "utils"], function(conf, utils) {
-    var _count = $("#count"), _input = $("#input"), _next = $("#next"),
+    var _count = $("#count"), _input = $("#input"), _lines = $("#lines"), _next = $("#next"),
         _score = $("#score"), _todo = $("#todo"), _countFull = _todo.width(),
         _removeMob, _advanceGame, _changeSpeed, _started = false, _points = 0
 
@@ -28,7 +28,11 @@ define(["conf", "utils"], function(conf, utils) {
         utils.defer(body.removeClass, body, "loading")
     }
 
-    function readline(text) {
+    function readline(text, history) {
+        if ((_started || utils.normalize(history) === "git init") && typeof history === "string") {
+            _lines.children(":first").remove()
+            _lines.children(":first").after("<li>history> " + history + "</li>")
+        }
         _input.text(text)
     }
 
