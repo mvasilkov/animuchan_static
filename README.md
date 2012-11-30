@@ -1,6 +1,7 @@
-**Click [here][1], [here][1] or [here][1] to play. Or [here][1].**
+**Click [here][1], [here][2] or [here][1] to play. Or [here][2].**
 
 [1]: http://animuchan.net/git-invaders/
+[2]: http://animuchan.net/git-invaders/music-on/
 
 # Git Invaders
 
@@ -43,6 +44,6 @@ Then use `fab optimize` to rebuild (minify) game files.
 
 ## License
 
-[MIT][2].
+[MIT][3].
 
-[2]: https://raw.github.com/mvasilkov/game-off-2012/master/MIT-LICENSE.txt
+[3]: https://raw.github.com/mvasilkov/game-off-2012/master/MIT-LICENSE.txt
