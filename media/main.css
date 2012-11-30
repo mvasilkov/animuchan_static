@@ -103,7 +103,11 @@ iframe {
 #todo {
     background-color: hsl(0, 0%, 10%);
     background-image:
+        -moz-linear-gradient(left, hsla(0, 0%, 0%, 0.4) 1px, hsla(0, 0%, 0%, 0) 1px);
+    background-image:
         -webkit-linear-gradient(0grad, hsla(0, 0%, 0%, 0.4) 1px, hsla(0, 0%, 0%, 0) 1px);
+    background-image:
+        -o-linear-gradient(left, hsla(0, 0%, 0%, 0.4) 1px, hsla(0, 0%, 0%, 0) 1px);
     background-position: left bottom;
     background-repeat: repeat-x;
     background-size: 2px 8px;
