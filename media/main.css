@@ -355,6 +355,7 @@ iframe {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     height: 69px;
+    margin-bottom: 4px;
     margin-top: 18px;
     padding-bottom: 0;
     position: relative;
@@ -555,4 +556,18 @@ iframe {
 .protip em {
     color: #8000ff;
     font-style: normal;
+}
+
+.animuchan {
+    margin: 0;
+    text-align: right;
+}
+
+.animuchan a {
+    color: #0080ff;
+    text-decoration: underline;
+}
+
+.animuchan a:hover {
+    color: #ff0080;
 }
