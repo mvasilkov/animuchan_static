@@ -21,7 +21,7 @@
 	</tr>
 	<tr>
 		<td><strong>FFFFUUUU:</strong></td>
-		<td>MSIE before version 10</td>
+		<td>MSIE before version 10, mobile devices</td>
 	</tr>
 </table>
 
@@ -30,7 +30,7 @@ Only the recent browser versions are supported.
 
 ## Building from source
 
-...involves **Fabric, RequireJS, UglifyJS** and **ycssmin.**
+...depends on **Fabric, RequireJS, UglifyJS** and **ycssmin.**
 (I assume **Node.js** and **Python** are installed, too.)
 
 Requirements:
