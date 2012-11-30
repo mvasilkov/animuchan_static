@@ -8,8 +8,11 @@
 Programmed by [Mark Vasilkov][3].
 See [End credits][4] for contributors and third parties.
 
+**Learn [how to play][5].**
+
 [3]: http://careers.stackoverflow.com/mvasilkov
 [4]: https://github.com/mvasilkov/game-off-2012/wiki/End-credits
+[5]: https://github.com/mvasilkov/game-off-2012/wiki/Battle-station-manual
 
 ## Compatibility
 
@@ -50,6 +53,6 @@ Then use `fab optimize` to rebuild (minify) game files.
 
 ## License
 
-[MIT][5].
+[MIT][6].
 
-[5]: https://raw.github.com/mvasilkov/game-off-2012/master/MIT-LICENSE.txt
+[6]: https://raw.github.com/mvasilkov/game-off-2012/master/MIT-LICENSE.txt
