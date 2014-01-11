@@ -6,10 +6,12 @@ define([
 function (phaser, maps, util) {
     var height = 200, width = 3 * height, bottom = height * 0.666|0,
         jumpButton = ' '.charCodeAt(), pad = 60, drop = bottom - 40,
+        domLevel = document.getElementById('level'),
+        domDeaths = document.getElementById('deaths'),
         game = new phaser.Game(width, height, phaser.AUTO, 'ninjacy')
 
     function loading() {}
-    function running() { this.pause = true }
+    function running() { this.pause = true, this.deaths = 0 }
 
     loading.prototype.preload = function () {
         game.load.image('box', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA'+
@@ -113,10 +115,14 @@ function (phaser, maps, util) {
 
             this.blocks3d.push(util.gooBoxFrom2dObjB(b, 2))
         }}, this)
+
+        domLevel.innerHTML = this.level
     }
 
     running.prototype.crashed = function () {
         this.reset()
+
+        domDeaths.innerHTML = ++this.deaths
     }
 
     game.state.add('loading', loading)
