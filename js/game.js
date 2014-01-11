@@ -59,7 +59,7 @@ function (phaser, maps, util) {
             this.pause || this.run()
         }
 
-        if (done) this.reset()
+        if (done) this.reset(), this.levelUp()
         else game.physics.overlap(this.player, this.blocks,
                                   this.crashed, 0, this)
 
@@ -106,7 +106,7 @@ function (phaser, maps, util) {
             b.anchor.setTo(0, 1)
             b.scale.setTo(1, h)
 
-            this.blocks3d.push(util.gooBoxFrom2dObjB(b, 2, h))
+            this.blocks3d.push(util.gooBoxFrom2dObjB(b, 2))
         }}, this)
     }
 

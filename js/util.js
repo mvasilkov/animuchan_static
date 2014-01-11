@@ -32,15 +32,14 @@ function (EntityUtils, Vector3, Material, ShaderLib, Box) {
         box.transformComponent.setRotation(0, 0, -obj.rotation)
     }
 
-    function gooBoxFrom2dObjB(obj, sz, h) {
-        var obj_height = h * obj.height
+    function gooBoxFrom2dObjB(obj, sz) {
         return gooBox([
             0.1 * obj.width,
-            0.1 * obj_height,
+            0.1 * obj.height,
             sz
         ], [
             0.1 * (obj.x - width$2),
-            0.1 * (height$2 - obj.y + 0.5 * obj_height),
+            0.1 * (height$2 - obj.y + 0.5 * obj.height),
             0
         ], [0.4, 0.8, 1, 1])
     }
