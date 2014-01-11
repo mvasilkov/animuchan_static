@@ -18,16 +18,17 @@ canvas {
 }
 
 #jesusry {
+    background: url('bar.png') no-repeat;
     color: #fff;
     font: 16px/20px 'Press Start 2P';
     list-style: none;
-    margin: 0 0 0 300px;
-    padding: 0;
+    margin: 0;
+    padding: 0 0 0 300px;
 }
 
 #jesusry li {
     background: #0b0303;
-    float: left;
+    display: inline-block;
     padding: 20px;
     width: 290px;
 }
