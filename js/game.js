@@ -1,4 +1,9 @@
-define(['lib/phaser', 'js/maps'], function (phaser, maps) {
+define([
+    'lib/phaser',
+    'js/maps',
+    'js/util'
+],
+function (phaser, maps, util) {
     var height = 200, width = 3 * height, bottom = height * 0.666|0,
         jumpButton = ' '.charCodeAt(), pad = 60, drop = bottom - 40,
         game = new phaser.Game(width, height, phaser.AUTO, 'ninjacy')
@@ -32,6 +37,9 @@ define(['lib/phaser', 'js/maps'], function (phaser, maps) {
         this.spacebar = game.input.keyboard.addKey(jumpButton)
         game.input.keyboard.addKeyCapture(jumpButton)
 
+        this.ground3d = util.gooBoxFrom2dObj(this.ground, 2)
+        this.player3d = util.gooBoxFrom2dObj(this.player, 2)
+
         this.levelUp()
     }
 
@@ -53,6 +61,8 @@ define(['lib/phaser', 'js/maps'], function (phaser, maps) {
         if (done) this.reset()
         else game.physics.overlap(this.player, this.blocks,
                                   this.crashed, 0, this)
+
+        util.moveRotate2dObj(this.player3d, this.player)
     }
 
     running.prototype.start = function () {
