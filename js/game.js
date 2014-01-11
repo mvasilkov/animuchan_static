@@ -58,10 +58,14 @@ define(['lib/phaser'], function (phaser) {
 
     running.prototype.jump = function () {
         this.player.body.velocity.y = -250
+        this.barrelRoll = game.add.tween(this.player)
+        this.barrelRoll.to({ angle: this.player.angle + 180 }, 700, 0, 1)
     }
 
     running.prototype.reset = function () {
         this.player.reset(pad, drop)
+        this.barrelRoll.stop()
+        this.player.angle = 0
     }
 
     game.state.add('loading', loading)
