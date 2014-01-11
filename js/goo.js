@@ -4,9 +4,10 @@ define([
     'lib/util/qs',
     'js/cam',
     'js/sun',
+    'js/bg',
     'js/util',
     '_canvas'
-], function (Loader, GooRunner, qs, cam, sun, util, canvas) {
+], function (Loader, GooRunner, qs, cam, sun, bg, util, canvas) {
     var debug = qs.parse(location.search.substr(1)).debug || false,
         goo = new GooRunner({canvas: canvas, logo: false, showStats: debug})
 
@@ -21,6 +22,7 @@ define([
         goo: goo,
         cam: cam.init(goo, debug),
         sun: sun.init(goo),
+        bg: bg.init(goo),
         util: util.init(goo)
     }
 })
