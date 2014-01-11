@@ -1,4 +1,4 @@
-define(['lib/phaser'], function (phaser) {
+define(['lib/phaser', 'js/maps'], function (phaser, maps) {
     var height = 200, width = 3 * height, bottom = height * 0.666|0,
         jumpButton = ' '.charCodeAt(), pad = 60, drop = bottom - 40,
         game = new phaser.Game(width, height, phaser.AUTO, 'ninjacy')
@@ -26,8 +26,13 @@ define(['lib/phaser'], function (phaser) {
         this.player.anchor.setTo(0.5, 0.5)
         this.player.body.gravity.setTo(0, 12)
 
+        this.blocks = game.add.group()
+        this.blocks.createMultiple(20, 'box')
+
         this.spacebar = game.input.keyboard.addKey(jumpButton)
         game.input.keyboard.addKeyCapture(jumpButton)
+
+        this.levelUp()
     }
 
     running.prototype.update = function () {
@@ -46,6 +51,8 @@ define(['lib/phaser'], function (phaser) {
         }
 
         if (done) this.reset()
+        else game.physics.overlap(this.player, this.blocks,
+                                  this.crashed, 0, this)
     }
 
     running.prototype.start = function () {
@@ -64,8 +71,30 @@ define(['lib/phaser'], function (phaser) {
 
     running.prototype.reset = function () {
         this.player.reset(pad, drop)
-        this.barrelRoll.stop()
+        this.barrelRoll.pause().stop()
         this.player.angle = 0
+    }
+
+    running.prototype.levelUp = function () {
+        this.blocks.forEachAlive(function (b) { b.kill() })
+        this.level = (this.level|0) + 1
+
+        maps[this.level].forEach(function (tile, n) { if (tile) {
+            var b = this.blocks.getFirstDead(), h
+            switch (tile) {
+                case 1: case 2: case 3: case 4:
+                    h = -0.1 * tile * tile + tile - 0.6
+                    break
+                default: return
+            }
+            b.reset(n * b.width + 100, bottom - 1)
+            b.anchor.setTo(0, 1)
+            b.scale.setTo(1, h)
+        }}, this)
+    }
+
+    running.prototype.crashed = function () {
+        this.reset()
     }
 
     game.state.add('loading', loading)
