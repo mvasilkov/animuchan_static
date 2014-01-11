@@ -95,14 +95,19 @@ function (phaser, maps, util) {
         this.blocks3d = []
 
         maps[this.level].forEach(function (tile, n) { if (tile) {
-            var b = this.blocks.getFirstDead(), h
+            var b = this.blocks.getFirstDead(), h, asc
             switch (tile) {
                 case 1: case 2: case 3: case 4:
+                    asc = 0
                     h = -0.1 * tile * tile + tile - 0.6
+                    break
+                case 5:
+                    asc = 22
+                    h = 0.3
                     break
                 default: return
             }
-            b.reset(n * b.width + 100, bottom - 1)
+            b.reset(n * b.width + 100, bottom - asc - 1)
             b.anchor.setTo(0, 1)
             b.scale.setTo(1, h)
 
