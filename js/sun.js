@@ -8,7 +8,7 @@ function (EntityUtils, PointLight) {
     function init(goo) {
         light = new PointLight
         light.color.set(1, 1, 1)
-        sun = EntityUtils.createTypicalEntity(goo.world, light, [0, 0, 10])
+        sun = EntityUtils.createTypicalEntity(goo.world, light, [2, 20, 10])
         sun.addToWorld()
         return sun
     }

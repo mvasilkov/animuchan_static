@@ -38,7 +38,7 @@ function (phaser, maps, util) {
         game.input.keyboard.addKeyCapture(jumpButton)
 
         this.ground3d = util.gooBoxFrom2dObj(this.ground, 2)
-        this.player3d = util.gooBoxFrom2dObj(this.player, 2)
+        this.player3d = util.gooBoxFrom2dObj(this.player, 2, [0.8, 1, 0.4, 1])
         this.blocks3d = []
 
         this.levelUp()
@@ -64,6 +64,7 @@ function (phaser, maps, util) {
                                   this.crashed, 0, this)
 
         util.moveRotate2dObj(this.player3d, this.player)
+        util.cameraTrack2dObj(game._goo.cam, this.player)
     }
 
     running.prototype.start = function () {
