@@ -29,10 +29,24 @@ function (EntityUtils, Material, ShaderLib, Box) {
         box.transformComponent.setRotation(0, 0, -obj.rotation)
     }
 
+    function gooBoxFrom2dObjB(obj, sz, h) {
+        var obj_height = obj.height * h
+        return gooBox([
+            0.1 * obj.width,
+            0.1 * obj_height,
+            sz
+        ], [
+            0.1 * (obj.x - width$2),
+            0.1 * (height$2 - obj.y + 0.5 * obj_height),
+            0
+        ])
+    }
+
     return {
         init: init,
         gooBox: gooBox,
         gooBoxFrom2dObj: gooBoxFrom2dObj,
-        moveRotate2dObj: moveRotate2dObj
+        moveRotate2dObj: moveRotate2dObj,
+        gooBoxFrom2dObjB: gooBoxFrom2dObjB
     }
 })

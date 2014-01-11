@@ -39,6 +39,7 @@ function (phaser, maps, util) {
 
         this.ground3d = util.gooBoxFrom2dObj(this.ground, 2)
         this.player3d = util.gooBoxFrom2dObj(this.player, 2)
+        this.blocks3d = []
 
         this.levelUp()
     }
@@ -89,6 +90,9 @@ function (phaser, maps, util) {
         this.blocks.forEachAlive(function (b) { b.kill() })
         this.level = (this.level|0) + 1
 
+        this.blocks3d.forEach(function (b) { b.removeFromWorld() })
+        this.blocks3d = []
+
         maps[this.level].forEach(function (tile, n) { if (tile) {
             var b = this.blocks.getFirstDead(), h
             switch (tile) {
@@ -100,6 +104,8 @@ function (phaser, maps, util) {
             b.reset(n * b.width + 100, bottom - 1)
             b.anchor.setTo(0, 1)
             b.scale.setTo(1, h)
+
+            this.blocks3d.push(util.gooBoxFrom2dObjB(b, 2, h))
         }}, this)
     }
 
