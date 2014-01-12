@@ -44,6 +44,14 @@ body.pause #msg-howto {
     display: block;
 }
 
+body.gameover #msg-gameover {
+    display: block;
+}
+
+body.gameover #ninjacy {
+    display: none;
+}
+
 .message {
     background: #0b0303;
     color: #fff;
@@ -72,6 +80,11 @@ body.pause #msg-howto {
 
 #msg-howto {
     padding: 60px;
+}
+
+#msg-gameover {
+    padding: 40px 60px 50px;
+    text-align: center;
 }
 
 #stats {

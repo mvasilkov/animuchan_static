@@ -8,10 +8,12 @@ function (phaser, maps, util) {
         jumpButton = ' '.charCodeAt(), pad = 60, drop = bottom - 40,
         domLevel = document.getElementById('level'),
         domDeaths = document.getElementById('deaths'),
+        domDeathsEnd = document.getElementById('deaths-end'),
         game = new phaser.Game(width, height, phaser.AUTO, 'ninjacy')
 
     function loading() {}
     function running() { this.pause = true, this.deaths = 0 }
+    function gameover() {}
 
     loading.prototype.preload = function () {
         game.load.image('box', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA'+
@@ -123,6 +125,14 @@ function (phaser, maps, util) {
         this.blocks3d.forEach(function (b) { b.removeFromWorld() })
         this.blocks3d = []
 
+        if (this.level == maps.length) {
+            this.ground3d.removeFromWorld()
+            this.player3d.removeFromWorld()
+            domDeathsEnd.innerHTML = this.deaths
+            game.state.start('gameover')
+            return
+        }
+
         maps[this.level].forEach(function (tile, n) { if (tile) {
             var b = this.blocks.getFirstDead(), h, asc
             switch (tile) {
@@ -156,8 +166,13 @@ function (phaser, maps, util) {
         domDeaths.innerHTML = ++this.deaths
     }
 
+    gameover.prototype.create = function () {
+        document.body.className = 'gameover'
+    }
+
     game.state.add('loading', loading)
     game.state.add('running', running)
+    game.state.add('gameover', gameover)
 
     return game
 })
