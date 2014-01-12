@@ -32,7 +32,7 @@ function (phaser, maps, util) {
     }
 
     loading.prototype.create = function () {
-        document.body.className = 'running'
+        document.body.className = 'pause'
         game.state.start('running')
     }
 
@@ -93,6 +93,7 @@ function (phaser, maps, util) {
     running.prototype.start = function () {
         this.pause = false
         this.music.play('', 0, 1, true)
+        document.body.className = 'running'
     }
 
     running.prototype.run = function () {

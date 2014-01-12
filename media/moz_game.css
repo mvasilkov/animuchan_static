@@ -40,6 +40,10 @@ body.loading #msg-loading {
     display: block;
 }
 
+body.pause #msg-howto {
+    display: block;
+}
+
 .message {
     background: #0b0303;
     color: #fff;
@@ -59,6 +63,15 @@ body.loading #msg-loading {
 
 .progress-bar {
     background: #fff;
+}
+
+.spacebar {
+    border: 3px solid #fff;
+    padding: 4px 6px;
+}
+
+#msg-howto {
+    padding: 60px;
 }
 
 #stats {
