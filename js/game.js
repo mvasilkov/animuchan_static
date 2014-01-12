@@ -72,7 +72,8 @@ function (phaser, maps, util) {
 
         var jumping = this.spacebar.isDown,
             landed = this.player.body.touching.down,
-            done = this.player.x >= width - pad
+            done = this.player.x >= width - pad,
+            bug = this.player.y >= height
 
         if (landed) {
             if (jumping) {
@@ -85,6 +86,8 @@ function (phaser, maps, util) {
         if (done) this.reset(), this.levelUp()
         else game.physics.overlap(this.player, this.blocks,
                                   this.crashed, 0, this)
+
+        if (bug) this.player.reset(pad, drop)
 
         util.moveRotate2dObj(this.player3d, this.player)
         util.cameraTrack2dObj(game._goo.cam, this.player)
