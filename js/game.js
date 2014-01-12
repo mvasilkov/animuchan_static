@@ -20,6 +20,8 @@ function (phaser, maps, util) {
         game.load.image('ground', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEU'+
                         'gAAAfQAAAACAQAAAACGEROXAAAAEElEQVQImWP4TxH4wEChfgBe83'+
                         '1l4TdA5wAAAABJRU5ErkJggg==')
+        game.load.audio('music', ['media/audio/music.mp3',
+                        'media/audio/music.ogg'])
     }
 
     loading.prototype.create = function () { game.state.start('running') }
@@ -42,6 +44,8 @@ function (phaser, maps, util) {
         this.ground3d = util.gooBoxFrom2dObj(this.ground, 2)
         this.player3d = util.gooBoxFrom2dObj(this.player, 2, [0.8, 1, 0.4, 1])
         this.blocks3d = []
+
+        this.music = game.add.audio('music')
 
         this.levelUp()
     }
@@ -71,6 +75,7 @@ function (phaser, maps, util) {
 
     running.prototype.start = function () {
         this.pause = false
+        this.music.play('', 0, 1, true)
     }
 
     running.prototype.run = function () {
