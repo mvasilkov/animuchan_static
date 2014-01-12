@@ -22,6 +22,11 @@ function (phaser, maps, util) {
                         '1l4TdA5wAAAABJRU5ErkJggg==')
         game.load.audio('music', ['media/audio/music.mp3',
                         'media/audio/music.ogg'])
+        game.load.audio('crashed', 'media/audio/crashed.wav')
+        game.load.audio('jump0', 'media/audio/jump0.wav')
+        game.load.audio('jump1', 'media/audio/jump1.wav')
+        game.load.audio('levelup0', 'media/audio/levelup0.wav')
+        game.load.audio('levelup1', 'media/audio/levelup1.wav')
     }
 
     loading.prototype.create = function () { game.state.start('running') }
@@ -46,8 +51,15 @@ function (phaser, maps, util) {
         this.blocks3d = []
 
         this.music = game.add.audio('music')
+        this.sounds = {
+            crashed:  game.add.audio('crashed'),
+            jump0:    game.add.audio('jump0'),
+            jump1:    game.add.audio('jump1'),
+            levelup0: game.add.audio('levelup0'),
+            levelup1: game.add.audio('levelup1')
+        }
 
-        this.levelUp()
+        this.levelUp(true)
     }
 
     running.prototype.update = function () {
@@ -84,6 +96,7 @@ function (phaser, maps, util) {
 
     running.prototype.jump = function () {
         this.player.body.velocity.y = -250
+        this.sounds['jump' + (Math.random() + 0.5|0)].play('', 0, 0.5)
         this.barrelRoll = game.add.tween(this.player)
         this.barrelRoll.to({ angle: this.player.angle + 180 }, 700, 0, 1)
     }
@@ -94,7 +107,7 @@ function (phaser, maps, util) {
         this.player.angle = 0
     }
 
-    running.prototype.levelUp = function () {
+    running.prototype.levelUp = function (initial) {
         this.blocks.forEachAlive(function (b) { b.kill() })
         this.level = (this.level|0) + 1
 
@@ -121,11 +134,15 @@ function (phaser, maps, util) {
             this.blocks3d.push(util.gooBoxFrom2dObjB(b, 2))
         }}, this)
 
+        if (initial) return
+        this.sounds['levelup' + (Math.random() + 0.5|0)].play('', 0, 0.5)
+
         domLevel.innerHTML = this.level
     }
 
     running.prototype.crashed = function () {
         this.reset()
+        this.sounds['crashed'].play('', 0, 0.5)
 
         domDeaths.innerHTML = ++this.deaths
     }
