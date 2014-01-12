@@ -27,9 +27,14 @@ function (phaser, maps, util) {
         game.load.audio('jump1', 'media/audio/jump1.wav')
         game.load.audio('levelup0', 'media/audio/levelup0.wav')
         game.load.audio('levelup1', 'media/audio/levelup1.wav')
+
+        game.stage.backgroundColor = '#0b0303'
     }
 
-    loading.prototype.create = function () { game.state.start('running') }
+    loading.prototype.create = function () {
+        document.body.className = 'running'
+        game.state.start('running')
+    }
 
     running.prototype.create = function () {
         this.ground = game.add.sprite(0.5 * width, bottom, 'ground')

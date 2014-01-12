@@ -6,13 +6,17 @@
         <link rel=stylesheet href=//fonts.googleapis.com/css?family=Press+Start+2P>
         <link rel=stylesheet href=media/moz_game.css>
     </head>
-    <body>
-        <canvas></canvas>
+    <body class=loading>
+        <canvas width=960 height=540></canvas>
         <div id=ninjacy></div>
         <ul id=jesusry>
             <li>Level: <span id=level>1</span></li><li>Deaths:
             <span id=deaths>0</span></li>
         </ul>
+        <div id=msg-loading class=message>
+            Loading...<br><br>
+            <span class=progress><span class=progress-bar>         </span>   </span>
+        </div>
         <script src=lib/goo-require.js data-main=app></script>
     </body>
 </html>
