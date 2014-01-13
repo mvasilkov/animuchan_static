@@ -5,7 +5,7 @@ define([
 ],
 function (phaser, maps, util) {
     phaser.RequestAnimationFrame.prototype.start =
-	function () { this.isRunning = true }
+        function () { this.isRunning = true }
 
     var height = 200, width = 3 * height, bottom = height * 0.666|0,
         jumpButton = ' '.charCodeAt(), pad = 60, drop = bottom - 40,
@@ -37,9 +37,9 @@ function (phaser, maps, util) {
     }
 
     loading.prototype.create = function () {
-	game._goo.goo.callbacksPreProcess.push(function () {
-	    game.update(Date.now())
-	})
+        game._goo.goo.callbacksPreProcess.push(function () {
+            game.update(Date.now())
+        })
 
         document.body.className = 'pause'
 
