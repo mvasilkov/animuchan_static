@@ -1,7 +1,7 @@
 (function (canvas) {
     define('_canvas', canvas)
     require.config({
-        urlArgs: 'rc1'
+        urlArgs: 'rc2'
     })
     require(['js/game', 'js/goo'], function (game, goo) {
         game._goo = goo
