@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang=en>
+    <head>
+        <meta charset=utf8>
+        <title>Push to break</title>
+        <link rel=stylesheet href=//fonts.googleapis.com/css?family=Press+Start+2P>
+        <link rel=stylesheet href=media/moz_game.css>
+    </head>
+    <body class=loading>
+        <canvas width=960 height=540></canvas>
+        <div id=ninjacy></div>
+        <ul id=jesusry>
+            <li>Level: <span id=level>1</span></li><li>Deaths:
+            <span id=deaths>0</span></li>
+        </ul>
+        <div id=msg-loading class=message>
+            Loading...<br><br>
+            <span class=progress><span class=progress-bar>         </span>   </span>
+        </div>
+        <div id=msg-howto class=message>
+            Press <span class=spacebar>spacebar</span> to begin!<br><br><br>
+            Controls:<br><br>
+            <span class=spacebar>spacebar</span> jump
+        </div>
+        <div id=msg-gameover class=message>
+            Game over<br><br>
+            Deaths: <span id=deaths-end>0</span><br><br>
+            Thank you for playing!<br><br><br>
+            <img src=media/animooted.gif width=200 height=200>
+        </div>
+        <script src=lib/goo-require.js data-main=app></script>
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-13074716-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol? 'https://ssl': 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </body>
+</html>
