@@ -1,0 +1,573 @@
+@-moz-keyframes blink {
+    from {opacity: 1}
+    to {opacity: 0}
+}
+
+@-moz-keyframes slide {
+    from {top: 64px}
+    to {top: 96px}
+}
+
+@-webkit-keyframes blink {
+    from {opacity: 1}
+    to {opacity: 0}
+}
+
+@-webkit-keyframes slide {
+    from {top: 64px}
+    to {top: 96px}
+}
+
+html:-webkit-full-screen {
+    background: #fbfbfb;
+}
+
+body {
+    background: #fbfbfb;
+    font: 0.8125em/22px source-code-pro, "Monaco", "Consolas", "Lucida Console", monospace;
+    margin: 0;
+    min-width: 960px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #202020;
+    font: 300 18px/24px "Helvetica Neue", "Segoe UI", "Tahoma", sans-serif;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    line-height: 22px; /* override Bootstrap default (20px) */
+}
+
+iframe {
+    display: block;
+    margin: 0 0 9px;
+}
+
+.btn, .switch {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#game .zone, #meta, .mob, .frag, .switch, #social-buttons {
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 900;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+#game {
+    background: #fff;
+    box-shadow:
+        0 1px rgb(225,225,225),
+        0 2px rgb(215,215,215),
+        0 3px rgb(205,205,205),
+        0 4px rgb(195,195,195),
+        0 5px rgb(185,185,185),
+        0 0 5px rgba(0,0,0,0.1),
+        0 1px 3px rgba(0,0,0,0.3),
+        0 3px 5px rgba(0,0,0,0.2),
+        0 5px 10px rgba(0,0,0,0.25),
+        0 6px 1px rgba(0,0,0,0.1),
+        0 10px 10px rgba(0,0,0,0.2),
+        0 20px 20px rgba(0,0,0,0.1);
+    height: 540px;
+    margin: 40px auto;
+    position: relative;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    width: 960px;
+}
+
+#game img {
+    display: block;
+}
+
+#game .zone {
+    box-shadow:
+        0 0 1px rgb(225,225,225),
+        0 0 2px rgb(215,215,215),
+        0 0 3px rgb(205,205,205);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#todo {
+    background-color: hsl(0, 0%, 10%);
+    background-image:
+        -moz-linear-gradient(left, hsla(0, 0%, 0%, 0.4) 1px, hsla(0, 0%, 0%, 0) 1px);
+    background-image:
+        -webkit-linear-gradient(0grad, hsla(0, 0%, 0%, 0.4) 1px, hsla(0, 0%, 0%, 0) 1px);
+    background-image:
+        -o-linear-gradient(left, hsla(0, 0%, 0%, 0.4) 1px, hsla(0, 0%, 0%, 0) 1px);
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    background-size: 2px 8px;
+    bottom: 5px;
+    height: 530px;
+    padding: 1px;
+    right: 5px;
+    width: 320px;
+}
+
+.task {
+    background-color: #f9f9f9;
+    background-image:
+        -moz-linear-gradient(top,
+            rgba(255,255,255,0.25),
+            rgba(255,255,255,0.25) 50%,
+            rgba(255,255,255,0) 50%);
+    background-image:
+        -webkit-gradient(linear, left top, left bottom,
+            from(rgba(255,255,255,0.25)),
+            color-stop(50%, rgba(255,255,255,0.25)),
+            color-stop(50%, rgba(255,255,255,0)));
+    background-image:
+        -o-linear-gradient(top,
+            rgba(255,255,255,0.25),
+            rgba(255,255,255,0.25) 50%,
+            rgba(255,255,255,0) 50%);
+    height: 49px;
+    line-height: 48px;
+    margin: 0 0 1px;
+    padding: 4px 16px;
+    position: relative;
+    -moz-transform: scale(0.01);
+    -webkit-transform: scale(0.01);
+    -o-transform: scale(0.01);
+    -moz-transition: -moz-transform 400ms, background-color 250ms;
+    -webkit-transition: -webkit-transform 400ms, background-color 250ms;
+    -o-transition: -o-transform 400ms, background-color 250ms;
+}
+
+.task:nth-child(2n+1) {
+    background-color: #bbdfff;
+}
+
+.active.task {
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+}
+
+.task img {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+
+.replacement {
+    height: 50px;
+    -moz-transition: height 250ms;
+    -webkit-transition: height 250ms;
+    -o-transition: height 250ms;
+}
+
+.replacement.foo {
+    height: 0;
+}
+
+#count {
+    background-color: hsl(200, 100%, 50%);
+    background-image: inherit;
+    background-position: -1px 0;
+    background-size: 2px 6px;
+    bottom: 1px;
+    height: 6px;
+    position: absolute;
+    -moz-transition: width 400ms;
+    -webkit-transition: width 400ms;
+    -o-transition: width 400ms;
+}
+
+#count.danger {
+    -moz-animation: blink 250ms cubic-bezier(1,0,0,1) infinite;
+    -webkit-animation: blink 250ms cubic-bezier(1,0,0,1) infinite;
+}
+
+.loading .task, .loading #count {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+#term, #github, #social-buttons {
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+#term {
+    background: #101010;
+    bottom: 5px;
+    color: #fff;
+    font-size: 16px;
+    height: 82px;
+    left: 5px;
+    padding: 8px 12px;
+    text-shadow: 0 0 3px rgba(255,255,255,0.75);
+    width: 625px;
+}
+
+#term em {
+    color: #fc0;
+    font-style: normal;
+    text-shadow: 0 0 5px rgba(255,204,0,0.75);
+}
+
+#term .interlace {
+    background: url("interlace.png"), rgba(255,255,255,0.5);
+    height: 100%;
+    left: 0;
+    opacity: 0.2;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#term .text-caret {
+    background: #fff;
+    box-shadow: 0 0 2px rgba(255,255,255,0.75);
+    white-space: pre;
+}
+
+#term .text-caret-animated {
+    -moz-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
+    -webkit-animation: blink 900ms cubic-bezier(1,0,0,1) infinite;
+}
+
+#input {
+    white-space: pre;
+}
+
+#warp.zone {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+#warp {
+    background: #f9f9f9 url("warp_bg.png");
+    border: 1px solid #404040;
+    height: 48px;
+    left: 5px;
+    padding: 1px;
+    top: 5px;
+    width: 66px;
+}
+
+#warp::after {
+    background-image: url("warp.png");
+    border: 1px solid #f9f9f9;
+    content: "";
+    height: 48px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 66px;
+}
+
+#next {
+    background: #404040;
+    height: 48px;
+    width: 0;
+}
+
+#next.done {
+    -moz-transition: width 3s linear;
+    -webkit-transition: width 3s linear;
+    -o-transition: width 3s linear;
+    width: 66px;
+}
+
+#meta {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 80px;
+    padding: 2px 4px;
+    position: absolute;
+    top: 5px;
+}
+
+#score {
+    line-height: 30px;
+    padding: 9px 25px;
+}
+
+#instructions, #console-disable {
+    background-color: rgba(0,0,0,0.9);
+    border: 1px solid #f9f9f9;
+    box-shadow:
+        0 1px rgb(225,225,225),
+        0 2px rgb(185,185,185),
+        0 0 3px rgba(0,0,0,.25),
+        0 2px 3px rgba(0,0,0,.2),
+        0 3px 5px rgba(0,0,0,.1),
+        inset 0 10px rgba(255,255,255,0.25);
+    color: #fff;
+    z-index: 2;
+}
+
+#instructions {
+    padding: 20px;
+    position: absolute;
+    right: 22px;
+    top: 64px;
+}
+
+#instructions:hover {
+    -moz-animation: slide 2s ease-in-out infinite alternate;
+    -webkit-animation: slide 2s ease-in-out infinite alternate;
+}
+
+#github {
+    background: #101010;
+    box-shadow: 0 0 5px rgba(0,0,0,0.25);
+    color: #fff;
+    left: 0;
+    line-height: 25px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: 0;
+    width: 250px;
+}
+
+@media all and (min-width: 1160px) {
+    #github {
+        -moz-transform: translate(-75px, 50px) rotate(-50grad);
+        -moz-transform-origin: 125px 0;
+        -webkit-transform: translate(-75px, 50px) rotate(-50grad);
+        -webkit-transform-origin: 125px 0;
+        -o-transform: translate(-75px, 50px) rotate(-50grad);
+        -o-transform-origin: 125px 0;
+    }
+}
+
+#social-buttons {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 69px;
+    margin-bottom: 4px;
+    margin-top: 18px;
+    padding-bottom: 0;
+    position: relative;
+}
+
+#social-buttons img {
+    position: absolute;
+    right: 9px;
+    top: 9px;
+}
+
+#console {
+    margin: 4px 0 0;
+}
+
+#console-disable {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 12px;
+    height: 70px;
+    left: -4px;
+    line-height: 70px;
+    position: relative;
+    text-align: center;
+    top: -4px;
+    width: 135px;
+}
+
+.switch, .switch-legend {
+    display: block;
+    float: left;
+    height: 60px;
+    padding: 1px;
+    width: 40px;
+}
+
+.switch {
+    background-color: #404040;
+    border-radius: 4px;
+    position: relative;
+}
+
+.switch input {
+    visibility: hidden;
+}
+
+.switch label {
+    background-image:
+        -moz-linear-gradient(top,
+            rgb(240,240,240),
+            rgb(210,210,210) 50%,
+            rgb(255,255,255) 50%,
+            rgb(240,240,240));
+    background-image:
+        -webkit-gradient(linear, left top, left bottom,
+            from(rgb(240,240,240)),
+            color-stop(50%, rgb(210,210,210)),
+            color-stop(50%, rgb(255,255,255)),
+            to(rgb(240,240,240)));
+    background-image:
+        -o-linear-gradient(top,
+            rgb(240,240,240),
+            rgb(210,210,210) 50%,
+            rgb(255,255,255) 50%,
+            rgb(240,240,240));
+    border-radius: 3px;
+    box-shadow:
+        0 0 1px rgba(0,0,0,0.2),
+        inset 0 1px 7px -1px rgba(185,185,185,0.5),
+        inset 0 5px 1px #fbfbfb,
+        inset 0 6px 0 #fff;
+    display: block;
+    height: 60px;
+    left: 1px;
+    position: absolute;
+    top: 1px;
+    width: 40px;
+}
+
+.switch input:checked + label {
+    background-image:
+        -moz-linear-gradient(top,
+            rgb(255,255,255),
+            rgb(225,225,225) 50%,
+            rgb(255,255,255) 50%,
+            rgb(240,240,240));
+    background-image:
+        -webkit-gradient(linear, left top, left bottom,
+            from(rgb(255,255,255)),
+            color-stop(50%, rgb(225,225,225)),
+            color-stop(50%, rgb(255,255,255)),
+            to(rgb(240,240,240)));
+    background-image:
+        -o-linear-gradient(top,
+            rgb(255,255,255),
+            rgb(225,225,225) 50%,
+            rgb(255,255,255) 50%,
+            rgb(240,240,240));
+    box-shadow:
+        0 2px 3px rgba(0,0,0,0.4),
+        inset 0 -1px 1px #9b9b9b,
+        inset 0 -5px 1px #b9b9b9,
+        inset 0 -6px 0 #fff;
+}
+
+.switch-legend {
+    line-height: 30px;
+    text-align: center;
+    width: 41px;
+}
+
+#level-select, #level-restart {
+    margin: 4px 0 0;
+    position: static;
+}
+
+#level-select .btn, #level-restart .btn {
+    border-color: #404040;
+    font-size: 12px;
+    position: static;
+    z-index: 2; /* fix Bootstrap issue */
+}
+
+#level-select .btn-primary.active {
+    background-color: #0080ff;
+}
+
+#fullscreen {
+    display: none;
+    font-size: 12px;
+    padding: 0 4px;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}
+
+#game-over {
+    border: 0;
+}
+
+#game-over .modal-body {
+    padding-bottom: 0;
+    text-align: center;
+}
+
+#game-over p {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+#game-over .modal-footer {
+    text-align: center;
+}
+
+#game-over .btn {
+    font-size: 12px;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.rect-prop {
+    background: rgba(255,0,128,0.5);
+    border: 1px solid #ff0080;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.mob {
+    display: block;
+    -webkit-user-drag: none;
+    height: 48px;
+    position: absolute;
+    width: 66px;
+}
+
+.frag {
+    height: 6px;
+    position: absolute;
+    width: 6px;
+}
+
+.mob0 {
+    background-color: #0080ff;
+}
+
+.mob1 {
+    background-color: #8000ff;
+}
+
+.mob2 {
+    background-color: #ff0080;
+}
+
+.protip {
+    margin: 9px 0 0;
+}
+
+.protip em {
+    color: #8000ff;
+    font-style: normal;
+}
+
+.animuchan {
+    margin: 0;
+    text-align: right;
+}
+
+.animuchan a {
+    color: #0080ff;
+    text-decoration: underline;
+}
+
+.animuchan a:hover {
+    color: #ff0080;
+}

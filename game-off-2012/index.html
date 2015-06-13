@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>git-invaders ★ GitHub Game Off 2012</title>
+        <link rel="stylesheet" href="lib/bootstrap/bootstrap.css">
+        <link rel="stylesheet" href="media/main.css" title="main">
+        <link rel="icon" href="favicon.ico">
+        <script src="//use.edgefonts.net/source-code-pro:n4.js"></script>
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-13074716-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol? 'https://ssl': 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body class="loading">
+        <div id="game">
+            <div class="zone" id="todo">
+                <div id="count"></div>
+            </div>
+            <div class="zone" id="term">
+                <ul id="lines">
+                    <li>Type `git init` and press return to start.</li>
+                    <li>------------------------------------------</li>
+                    <li><em>git-inv></em> <span id="input"></span><span class="text-caret text-caret-animated"> </span></li>
+                </ul>
+                <div class="interlace"></div>
+            </div>
+            <div class="zone" id="warp">
+                <div id="next"></div>
+            </div>
+            <div id="meta">
+                <h2 id="score">000000000</h2>
+            </div>
+            <div id="instructions">
+                <img src="media/readme.png" width="290" height="220">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="span4">
+                    <h1>git-invaders: the game of git</h1>
+                    <div id="level-select" class="btn-group">
+                        <a href="?easy" class="btn btn-mini easy">Easy</a>
+                        <a href="?norm" class="btn btn-mini norm">Normal</a>
+                        <a href="?hard" class="btn btn-mini hard">Hard</a>
+                    </div>
+                    <div id="level-restart" class="btn-group">
+                        <a href="?easy" class="btn btn-mini">Restart</a>
+                    </div>
+                    <p class="protip">Protip: use <em>g</em> as an alias for <em>git</em>.</p>
+                </div>
+                <div class="span4">
+                    <h2>music and sound</h2>
+                    <div id="console">
+                        <span class="switch">
+                            <input type="checkbox" name="music-on" id="music-on" autocomplete="off">
+                            <label for="music-on"></label>
+                        </span>
+                        <span class="switch-legend">
+                            <span class="on">on</span>
+                            <span class="off">off</span>
+                        </span>
+                        <span class="switch">
+                            <input type="checkbox" name="sound-on" id="sound-on" autocomplete="off" checked>
+                            <label for="sound-on"></label>
+                        </span>
+                        <div id="console-disable"></div>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="well well-small" id="social-buttons">
+                        <iframe src="http://ghbtns.com/github-btn.html?user=mvasilkov&repo=game-off-2012&type=fork&count=true"
+                          allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="20px"></iframe>
+                        <iframe src="http://ghbtns.com/github-btn.html?user=mvasilkov&type=follow&count=true"
+                          allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="20px"></iframe>
+                        <img src="media/octocat.png" width="49" height="49">
+                    </div>
+                    <p class="animuchan"><a href="http://animuchan.net/">animuchan</a></p>
+                </div>
+            </div>
+        </div>
+        <div id="game-over" class="modal hide fade">
+            <div class="modal-header">
+                <h3>Game Over</h3>
+            </div>
+            <div class="modal-body">
+                <p>High score: <span id="high-score">000000000</span></p>
+                <img src="media/yuru_yuri.gif" alt="" width="400" height="225">
+            </div>
+            <div class="modal-footer">
+                <a href="?easy" class="btn btn-mini btn-primary">Restart</a>
+            </div>
+        </div>
+        <a href="https://github.com/mvasilkov/game-off-2012" id="github">Fork me on GitHub</a>
+        <a href="javascript:" id="fullscreen" class="btn">Fullscreen</a>
+        <script src="lib/box2d-web.js"></script>
+        <script src="lib/jquery-1.8.2.js"></script>
+        <script src="lib/bootstrap/bootstrap.js"></script>
+        <script src="lib/soundmanager2-nodebug.js"></script>
+        <script data-main="app/main.js" src="lib/require.js"></script>
+    </body>
+</html>
