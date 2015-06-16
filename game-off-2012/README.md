@@ -5,14 +5,12 @@
 
 # Git Invaders
 
+Git Invaders is an open source HTML5 game, written for GitHub Game Off in 2012.
 Programmed by [Mark Vasilkov][3].
-See [End credits][4] for contributors and third parties.
-
-**Learn [how to play][5].**
+See [CREDITS][4] for contributors and third parties.
 
 [3]: http://careers.stackoverflow.com/mvasilkov
-[4]: https://github.com/mvasilkov/game-off-2012/wiki/End-credits
-[5]: https://github.com/mvasilkov/game-off-2012/wiki/Battle-station-manual
+[4]: https://github.com/mvasilkov/animuchan_static/blob/gh-pages/game-off-2012/CREDITS.md
 
 ## Compatibility
 
@@ -55,4 +53,4 @@ Then use `fab optimize` to rebuild (minify) game files.
 
 [MIT][6].
 
-[6]: https://raw.github.com/mvasilkov/game-off-2012/master/MIT-LICENSE.txt
+[6]: https://raw.githubusercontent.com/mvasilkov/animuchan_static/gh-pages/game-off-2012/MIT-LICENSE.txt
