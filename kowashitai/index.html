@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf8>
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <title>KOWASHITAI</title>
+        <link rel=stylesheet href="//fonts.googleapis.com/css?family=Open+Sans:300,400">
+        <link rel=stylesheet href=./stylesheets/app.css>
+    </head>
+    <body>
+        <div class=container>
+            <div id=Cirno class=card>
+                <div class=character></div>
+                <div class=casing></div>
+                <div class=badge></div>
+                <div class=type></div>
+                <div class=typeclass data-bind=text:typeclass></div>
+                <div class=name data-bind=text:name></div>
+                <div class=level>Lv.<span data-bind=text:level></span></div>
+                <div class=attributes>
+                    Str.<span data-bind=text:strength></span>
+                    Int.<span data-bind=text:intelligence></span>
+                    Ag.<span data-bind=text:agility></span>
+                </div>
+                <div class=rating></div>
+
+                <div class=editor>
+                    <label for=input_name>Name:</label>
+                    <input id=input_name type=text data-bind="value:name,events:['keyup']">
+                    <br>
+                    <label for=input_typeclass>Typeclass:</label>
+                    <input id=input_typeclass type=text data-bind="value:typeclass,events:['keyup']">
+                    <br>
+                    <label for=input_level>Level:</label>
+                    <input id=input_level type=text data-bind="value:level,events:['keyup']">
+                    <br>
+                    <label for=input_strength>Strength:</label>
+                    <input id=input_strength type=text data-bind="value:strength,events:['keyup']">
+                    <br>
+                    <label for=input_intelligence>Intelligence:</label>
+                    <input id=input_intelligence type=text data-bind="value:intelligence,events:['keyup']">
+                    <br>
+                    <label for=input_agility>Agility:</label>
+                    <input id=input_agility type=text data-bind="value:agility,events:['keyup']">
+                </div>
+            </div>
+        </div>
+
+        <script src=./bower_components/jquery/dist/jquery.js></script>
+        <script src=./bower_components/lodash/lodash.js></script>
+        <script src=./bower_components/backbone/backbone.js></script>
+        <script src=./bower_components/backbone.epoxy/backbone.epoxy.js></script>
+
+        <script src=./app.js></script>
+    </body>
+</html>

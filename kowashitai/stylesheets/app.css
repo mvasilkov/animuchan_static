@@ -1,0 +1,116 @@
+body {
+    font: 400 14px/20px 'Open Sans', sans-serif;
+    padding: 90px 120px;
+}
+
+.card {
+    position: relative;
+}
+
+.card .character {
+    height: 345px;
+    left: 33px;
+    position: absolute;
+    top: 58px;
+    width: 269px;
+}
+
+#Cirno.card .character {
+    background-image: url(../pictures/Cards/Cirno/body_cirno1.png);
+}
+
+.card .casing {
+    background-image: url(../pictures/Cards/Cirno/body_template.png);
+    height: 529px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 336px;
+}
+
+.card .badge {
+    background-image: url(../pictures/Cards/Cirno/body_head.png);
+    height: 81px;
+    left: 24px;
+    position: absolute;
+    top: 38px;
+    width: 287px;
+}
+
+.card .type {
+}
+
+#Cirno.card .type {
+    background-image: url(../pictures/Cards/Cirno/icon_unique.png);
+    height: 78px;
+    left: 13px;
+    position: absolute;
+    top: 38px;
+    width: 99px;
+}
+
+.card .typeclass {
+    color: #464646;
+    font-size: 12px;
+    left: 126px;
+    line-height: 12px;
+    position: absolute;
+    top: 57px;
+}
+
+.card .name {
+    color: #0160bd;
+    font-size: 20px;
+    left: 175px;
+    line-height: 20px;
+    position: absolute;
+    text-shadow: 0 1px rgba(255,255,255,0.9);
+    top: 53px;
+}
+
+.card .level {
+    color: #b9d390;
+    font-size: 44px;
+    font-weight: 300;
+    left: 43px;
+    line-height: 44px;
+    position: absolute;
+    top: 402px;
+}
+
+.card .attributes {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    left: 148px;
+    line-height: 20px;
+    position: absolute;
+    top: 414px;
+}
+
+.card .rating {
+    background-image: url(../pictures/Cards/Cirno/icon_rating.png);
+    height: 20px;
+    left: 33px;
+    position: absolute;
+    top: 460px;
+}
+
+#Cirno.card .rating {
+    width: 105px;
+}
+
+.editor {
+    background: #fffbeb;
+    border: 1px solid #ff1493;
+    left: 600px;
+    padding: 30px 30px 20px;
+    position: absolute;
+    top: 100px;
+}
+
+.editor label {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 100px;
+}
