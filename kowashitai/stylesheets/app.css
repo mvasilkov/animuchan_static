@@ -1,5 +1,5 @@
 body {
-    font: 400 14px/20px 'Open Sans', sans-serif;
+    font: 400 14px/20px 'Source Sans Pro', sans-serif;
     padding: 90px 120px;
 }
 
@@ -15,8 +15,16 @@ body {
     width: 269px;
 }
 
-#Cirno.card .character {
+#Cirno.card[data-rank='1'] .character {
     background-image: url(../pictures/Cards/Cirno/body_cirno1.png);
+}
+
+#Cirno.card[data-rank='2'] .character {
+    background-image: url(../pictures/Cards/Cirno/body_cirno2.png);
+}
+
+#Cirno.card[data-rank='3'] .character {
+    background-image: url(../pictures/Cards/Cirno/body_cirno3.png);
 }
 
 .card .casing {
@@ -37,6 +45,33 @@ body {
     width: 287px;
 }
 
+.card .rank {
+    background-image: url(../pictures/Cards/Cirno/icon_rank2.png);
+    height: 19px;
+    left: 44px;
+    position: absolute;
+    top: 127px;
+    width: 19px;
+}
+
+.card .rank.rank-1 {
+    background-image: url(../pictures/Cards/Cirno/icon_rank1.png);
+}
+
+.card .rank.rank-2 {
+    left: 66px;
+}
+
+.card .rank.rank-3 {
+    left: 88px;
+}
+
+.card[data-rank='2'] .rank-2,
+.card[data-rank='3'] .rank-2,
+.card[data-rank='3'] .rank-3 {
+    background-image: url(../pictures/Cards/Cirno/icon_rank1.png);
+}
+
 .card .type {
 }
 
@@ -52,16 +87,16 @@ body {
 .card .typeclass {
     color: #464646;
     font-size: 12px;
-    left: 126px;
+    left: 124px;
     line-height: 12px;
     position: absolute;
     top: 57px;
 }
 
 .card .name {
-    color: #0160bd;
+    color: #006bc5;
     font-size: 20px;
-    left: 175px;
+    left: 170px;
     line-height: 20px;
     position: absolute;
     text-shadow: 0 1px rgba(255,255,255,0.9);
@@ -69,35 +104,31 @@ body {
 }
 
 .card .level {
-    color: #b9d390;
+    color: #c1da99;
     font-size: 44px;
-    font-weight: 300;
+    font-weight: 200;
     left: 43px;
     line-height: 44px;
     position: absolute;
-    top: 402px;
+    top: 404px;
 }
 
 .card .attributes {
     color: #fff;
     font-size: 20px;
-    font-weight: 300;
-    left: 148px;
+    font-weight: 200;
+    left: 146px;
     line-height: 20px;
     position: absolute;
-    top: 414px;
+    top: 416px;
 }
 
-.card .rating {
+.card .rarity {
     background-image: url(../pictures/Cards/Cirno/icon_rating.png);
     height: 20px;
     left: 33px;
     position: absolute;
     top: 460px;
-}
-
-#Cirno.card .rating {
-    width: 105px;
 }
 
 .editor {
