@@ -7,7 +7,7 @@ var CardModel = Backbone.Epoxy.Model.extend({
         strength: 0,
         intelligence: 0,
         agility: 0,
-        rarity: 0
+        rating: 0
     }
 })
 
@@ -19,17 +19,17 @@ var Cirno = new CardModel({
     strength: 8,
     intelligence: 4,
     agility: 9,
-    rarity: 5
+    rating: 5
 })
 
 var view = new Backbone.Epoxy.View({
     el: '#Cirno',
     model: Cirno,
     computeds: {
-        rarityInlineCSS: {
-            deps: ['rarity'],
-            get: function (rarity) {
-                return 'width:' + (rarity * 21) + 'px'
+        ratingInlineCSS: {
+            deps: ['rating'],
+            get: function (rating) {
+                return 'width:' + (rating * 21) + 'px'
             }
         }
     }

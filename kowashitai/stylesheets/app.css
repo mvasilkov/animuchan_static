@@ -123,7 +123,7 @@ body {
     top: 416px;
 }
 
-.card .rarity {
+.card .rating {
     background-image: url(../pictures/Cards/Cirno/icon_rating.png);
     height: 20px;
     left: 33px;

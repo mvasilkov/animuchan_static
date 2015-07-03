@@ -25,7 +25,7 @@
                     Int.<span data-bind=text:intelligence></span>
                     Ag.<span data-bind=text:agility></span>
                 </div>
-                <div class=rarity data-bind="attr:{style:rarityInlineCSS}"></div>
+                <div class=rating data-bind="attr:{style:ratingInlineCSS}"></div>
 
                 <div class=editor>
                     <label for=input_name>Name:</label>
@@ -49,8 +49,8 @@
                     <label for=input_agility>Agility:</label>
                     <input id=input_agility type=range min=0 max=99 data-bind="value:agility,events:['input']">
                     <br>
-                    <label for=input_rarity>Rarity:</label>
-                    <input id=input_rarity type=text data-bind="value:rarity,events:['keyup']">
+                    <label for=input_rating>Rating:</label>
+                    <input id=input_rating type=range min=0 max=10 data-bind="value:rating,events:['input']">
                 </div>
             </div>
         </div>
