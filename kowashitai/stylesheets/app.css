@@ -73,15 +73,23 @@ body {
 }
 
 .card .type {
+    position: absolute;
 }
 
-#Cirno.card .type {
+.card.unique .type {
     background-image: url(../pictures/Cards/Cirno/icon_unique.png);
     height: 78px;
     left: 13px;
-    position: absolute;
     top: 38px;
     width: 99px;
+}
+
+.card.unique.leader .type {
+    background-image: url(../pictures/Cards/Cirno/icon_king.png);
+    height: 77px;
+    left: 14px;
+    top: 34px;
+    width: 94px;
 }
 
 .card .typeclass {

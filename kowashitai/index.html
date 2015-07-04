@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class=container>
-            <div id=Cirno class=card data-bind="attr:{'data-rank':rank}">
+            <div id=Cirno class="unique card" data-bind="attr:{'data-rank':rank},classes:{leader:leader}">
                 <div class=character></div>
                 <div class=casing></div>
                 <div class=badge></div>
@@ -51,6 +51,9 @@
                     <br>
                     <label for=input_rating>Rating:</label>
                     <input id=input_rating type=range min=0 max=10 data-bind="value:rating,events:['input']">
+                    <br>
+                    <label for=input_leader>Leader:</label>
+                    <input id=input_leader type=checkbox data-bind="checked:leader">
                 </div>
             </div>
         </div>

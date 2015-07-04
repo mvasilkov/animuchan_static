@@ -7,7 +7,8 @@ var CardModel = Backbone.Epoxy.Model.extend({
         strength: 0,
         intelligence: 0,
         agility: 0,
-        rating: 0
+        rating: 0,
+        leader: false
     }
 })
 
@@ -19,7 +20,8 @@ var Cirno = new CardModel({
     strength: 8,
     intelligence: 4,
     agility: 9,
-    rating: 5
+    rating: 5,
+    leader: true
 })
 
 var view = new Backbone.Epoxy.View({
