@@ -31,7 +31,7 @@ var view = new Backbone.Epoxy.View({
         ratingInlineCSS: {
             deps: ['rating'],
             get: function (rating) {
-                return 'width:' + (rating * 21) + 'px'
+                return 'width:' + (rating * 22) + 'px'
             }
         }
     }
