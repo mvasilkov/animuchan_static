@@ -28,11 +28,23 @@ var view = new Backbone.Epoxy.View({
     el: '#Cirno',
     model: Cirno,
     computeds: {
-        ratingInlineCSS: {
+        rating1InlineCSS: {
             deps: ['rating'],
             get: function (rating) {
+                rating = clamp(rating, 0, 10)
+                return 'width:' + (rating * 22) + 'px'
+            }
+        },
+        rating2InlineCSS: {
+            deps: ['rating'],
+            get: function (rating) {
+                rating = clamp(rating - 10, 0, 10)
                 return 'width:' + (rating * 22) + 'px'
             }
         }
     }
 })
+
+function clamp(x, lower, upper) {
+    return x < lower? lower: x > upper? upper: x
+}

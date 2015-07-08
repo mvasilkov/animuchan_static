@@ -131,12 +131,19 @@ body {
     top: 416px;
 }
 
-.card .rating {
-    background-image: url(../pictures/Cards/icon_rating.png);
+.card .rating1, .card .rating2 {
     height: 20px;
     left: 33px;
     position: absolute;
     top: 460px;
+}
+
+.card .rating1 {
+    background-image: url(../pictures/Cards/icon_rating.png);
+}
+
+.card .rating2 {
+    background-image: url(../pictures/Cards/icon_ratinggold.png);
 }
 
 .editor {

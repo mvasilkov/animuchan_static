@@ -25,7 +25,8 @@
                     Int.<span data-bind=text:intelligence></span>
                     Ag.<span data-bind=text:agility></span>
                 </div>
-                <div class=rating data-bind="attr:{style:ratingInlineCSS}"></div>
+                <div class=rating1 data-bind="attr:{style:rating1InlineCSS}"></div>
+                <div class=rating2 data-bind="attr:{style:rating2InlineCSS}"></div>
 
                 <div class=editor>
                     <label for=input_name>Name:</label>
@@ -50,7 +51,7 @@
                     <input id=input_agility type=range min=0 max=99 data-bind="value:agility,events:['input']">
                     <br>
                     <label for=input_rating>Rating:</label>
-                    <input id=input_rating type=range min=0 max=10 data-bind="value:rating,events:['input']">
+                    <input id=input_rating type=range min=0 max=20 data-bind="value:rating,events:['input']">
                     <br>
                     <label for=input_leader>Leader:</label>
                     <input id=input_leader type=checkbox data-bind="checked:leader">
