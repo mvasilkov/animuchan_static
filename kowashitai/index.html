@@ -5,11 +5,11 @@
         <meta name=viewport content="width=device-width, initial-scale=1">
         <title>KOWASHITAI</title>
         <link rel=stylesheet href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400">
-        <link rel=stylesheet href=./stylesheets/app.css>
+        <link rel=stylesheet href=./stylesheets/app.css?1>
     </head>
     <body>
-        <div class=container>
-            <div id=Cirno class="unique card" data-bind="attr:{'data-rank':rank},classes:{leader:leader}">
+        <div class=container id=Cirno>
+            <div class="unique card" data-bind="attr:{'data-rank':rank},classes:{leader:leader}">
                 <div class=character></div>
                 <div class=casing></div>
                 <div class=badge></div>
@@ -27,35 +27,55 @@
                 </div>
                 <div class=rating1 data-bind="attr:{style:rating1InlineCSS}"></div>
                 <div class=rating2 data-bind="attr:{style:rating2InlineCSS}"></div>
+            </div>
 
-                <div class=editor>
-                    <label for=input_name>Name:</label>
-                    <input id=input_name type=text data-bind="value:name,events:['keyup']">
-                    <br>
-                    <label for=input_typeclass>Typeclass:</label>
-                    <input id=input_typeclass type=text data-bind="value:typeclass,events:['keyup']">
-                    <br>
-                    <label for=input_rank>Rank:</label>
-                    <input id=input_rank type=range min=1 max=3 data-bind="value:rank,events:['input']">
-                    <br>
-                    <label for=input_level>Level:</label>
-                    <input id=input_level type=range min=0 max=99 data-bind="value:level,events:['input']">
-                    <br>
-                    <label for=input_strength>Strength:</label>
-                    <input id=input_strength type=range min=0 max=99 data-bind="value:strength,events:['input']">
-                    <br>
-                    <label for=input_intelligence>Intelligence:</label>
-                    <input id=input_intelligence type=range min=0 max=99 data-bind="value:intelligence,events:['input']">
-                    <br>
-                    <label for=input_agility>Agility:</label>
-                    <input id=input_agility type=range min=0 max=99 data-bind="value:agility,events:['input']">
-                    <br>
-                    <label for=input_rating>Rating:</label>
-                    <input id=input_rating type=range min=0 max=20 data-bind="value:rating,events:['input']">
-                    <br>
-                    <label for=input_leader>Leader:</label>
-                    <input id=input_leader type=checkbox data-bind="checked:leader">
+            <div class="unique card small" data-bind="attr:{'data-rank':rank},classes:{leader:leader}">
+                <div class=character></div>
+                <div class=casing></div>
+                <div class=badge></div>
+                <div class="rank rank-1"></div>
+                <div class="rank rank-2"></div>
+                <div class="rank rank-3"></div>
+                <div class=type></div>
+                <div class=typeclass data-bind=text:typeclass></div>
+                <div class=name data-bind=text:name></div>
+                <div class=level>Lv.<span data-bind=text:level></span></div>
+                <div class=attributes>
+                    Str.<span data-bind=text:strength></span>
+                    Int.<span data-bind=text:intelligence></span>
+                    Ag.<span data-bind=text:agility></span>
                 </div>
+                <div class=rating1 data-bind="attr:{style:rating1InlineCSS}"></div>
+                <div class=rating2 data-bind="attr:{style:rating2InlineCSS}"></div>
+            </div>
+
+            <div class=editor>
+                <label for=input_name>Name:</label>
+                <input id=input_name type=text data-bind="value:name,events:['keyup']">
+                <br>
+                <label for=input_typeclass>Typeclass:</label>
+                <input id=input_typeclass type=text data-bind="value:typeclass,events:['keyup']">
+                <br>
+                <label for=input_rank>Rank:</label>
+                <input id=input_rank type=range min=1 max=3 data-bind="value:rank,events:['input']">
+                <br>
+                <label for=input_level>Level:</label>
+                <input id=input_level type=range min=0 max=99 data-bind="value:level,events:['input']">
+                <br>
+                <label for=input_strength>Strength:</label>
+                <input id=input_strength type=range min=0 max=99 data-bind="value:strength,events:['input']">
+                <br>
+                <label for=input_intelligence>Intelligence:</label>
+                <input id=input_intelligence type=range min=0 max=99 data-bind="value:intelligence,events:['input']">
+                <br>
+                <label for=input_agility>Agility:</label>
+                <input id=input_agility type=range min=0 max=99 data-bind="value:agility,events:['input']">
+                <br>
+                <label for=input_rating>Rating:</label>
+                <input id=input_rating type=range min=0 max=20 data-bind="value:rating,events:['input']">
+                <br>
+                <label for=input_leader>Leader:</label>
+                <input id=input_leader type=checkbox data-bind="checked:leader">
             </div>
         </div>
 
@@ -64,6 +84,6 @@
         <script src=./bower_components/backbone/backbone.js></script>
         <script src=./bower_components/backbone.epoxy/backbone.epoxy.js></script>
 
-        <script src=./app.js></script>
+        <script src=./app.js?1></script>
     </body>
 </html>

@@ -4,53 +4,68 @@ body {
 }
 
 .card {
+    box-shadow: 0 0 48px rgba(0,0,0,0.33);
+    height: 455px;
+    overflow: hidden;
     position: relative;
+    width: 289px;
+}
+
+.card.small {
+    transform: scale3d(0.5, 0.5, 1);
+    transform-origin: 0 0;
+}
+
+#Cirno .card.small {
+    left: 600px;
+    position: absolute;
+    top: 500px;
 }
 
 .card .character {
     height: 345px;
-    left: 33px;
+    left: 10px;
     position: absolute;
-    top: 58px;
+    top: 21px;
     width: 269px;
 }
 
-#Cirno.card[data-rank='1'] .character {
+#Cirno .card[data-rank='1'] .character {
     background-image: url(../pictures/Cards/Cirno/body_cirno1.png);
 }
 
-#Cirno.card[data-rank='2'] .character {
+#Cirno .card[data-rank='2'] .character {
     background-image: url(../pictures/Cards/Cirno/body_cirno2.png);
 }
 
-#Cirno.card[data-rank='3'] .character {
+#Cirno .card[data-rank='3'] .character {
     background-image: url(../pictures/Cards/Cirno/body_cirno3.png);
 }
 
 .card .casing {
     background-image: url(../pictures/Cards/body_template.png);
     height: 529px;
-    left: 0;
+    left: -23px;
     position: absolute;
-    top: 0;
+    top: -37px;
     width: 336px;
 }
 
 .card .badge {
     background-image: url(../pictures/Cards/body_head.png);
     height: 81px;
-    left: 24px;
+    left: 1px;
     position: absolute;
-    top: 38px;
+    top: 1px;
     width: 287px;
 }
 
 .card .rank {
     background-image: url(../pictures/Cards/icon_rank2.png);
     height: 19px;
-    left: 44px;
+    left: 21px;
     position: absolute;
-    top: 127px;
+    top: 90px;
     width: 19px;
 }
 
@@ -59,11 +74,11 @@ body {
 }
 
 .card .rank.rank-2 {
-    left: 66px;
+    left: 43px;
 }
 
 .card .rank.rank-3 {
-    left: 88px;
+    left: 65px;
 }
 
 .card[data-rank='2'] .rank-2,
@@ -79,63 +94,63 @@ body {
 .card.unique .type {
     background-image: url(../pictures/Cards/icon_unique.png);
     height: 78px;
-    left: 13px;
-    top: 38px;
+    left: -10px;
+    top: 1px;
     width: 99px;
 }
 
 .card.unique.leader .type {
     background-image: url(../pictures/Cards/icon_king.png);
     height: 77px;
-    left: 14px;
-    top: 34px;
+    left: -9px;
+    top: -3px;
     width: 94px;
 }
 
 .card .typeclass {
     color: #464646;
     font-size: 12px;
-    left: 124px;
+    left: 101px;
     line-height: 12px;
     position: absolute;
-    top: 57px;
+    top: 20px;
 }
 
 .card .name {
     color: #006bc5;
     font-size: 20px;
-    left: 170px;
+    left: 147px;
     line-height: 20px;
     position: absolute;
     text-shadow: 0 1px rgba(255,255,255,0.9);
-    top: 53px;
+    top: 16px;
 }
 
 .card .level {
     color: #c1da99;
     font-size: 44px;
     font-weight: 200;
-    left: 43px;
+    left: 20px;
     line-height: 44px;
     position: absolute;
-    top: 404px;
+    top: 367px;
 }
 
 .card .attributes {
     color: #fff;
     font-size: 20px;
     font-weight: 200;
-    left: 146px;
+    left: 123px;
     line-height: 20px;
     position: absolute;
-    top: 416px;
+    top: 379px;
 }
 
 .card .rating1, .card .rating2 {
     height: 20px;
-    left: 33px;
+    left: 10px;
     position: absolute;
-    top: 460px;
+    top: 423px;
 }
 
 .card .rating1 {
