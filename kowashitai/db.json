@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Cirno",
+        "typeclass": "Fairy",
+        "rarity": "Rare",
+        "unique": true,
+        "rating": 5,
+        "level": 9,
+        "strength": 8,
+        "intelligence": 4,
+        "agility": 9,
+        "health": 120,
+        "mana": 30,
+        "attackElement": "Ice",
+        "weakElement": "Fire",
+        "nullElement": "Ice",
+        "ranks": 3,
+        "characterPicture": "body_cirno%d.png"
+    }
+]
