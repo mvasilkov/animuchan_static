@@ -12,6 +12,7 @@ var CardModel = Backbone.Epoxy.Model.extend({
         health: 0,
         mana: 0,
         attackElement: '',
+        strongElement: '',
         weakElement: '',
         nullElement: '',
         unique: false,
@@ -42,6 +43,19 @@ var CardView = Backbone.Epoxy.View.extend({
             get: function (rating) {
                 rating = clamp(rating - 10, 0, 10)
                 return 'width:' + (rating * 22) + 'px'
+            }
+        },
+
+        rank2InlineCSS: {
+            deps: ['ranks'],
+            get: function (ranks) {
+                return ranks > 1 ? '' : 'display:none'
+            }
+        },
+        rank3InlineCSS: {
+            deps: ['ranks'],
+            get: function (ranks) {
+                return ranks > 2 ? '' : 'display:none'
             }
         }
     },

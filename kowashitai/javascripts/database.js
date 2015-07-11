@@ -53,7 +53,8 @@ function writeCSS(cards) {
         for (var i = 1; i <= card.ranks; ++i) {
             css += '.card[data-character="' + card.name + '"]'
             + '[data-rank="' + i + '"] .character'
-            + '{background-image: url(./pictures/Cards/Cirno/'
+            + '{background-image: url(./pictures/Cards/'
+            + card.name.replace(/ /g, '%20') + '/'
             + card.characterPicture.replace('%d', i) + ')}'
         }
     })
